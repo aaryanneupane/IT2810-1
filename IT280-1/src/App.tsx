@@ -1,18 +1,25 @@
 import React from 'react';
-import './App.css';
-import AppRoutes from './routes';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import FavouritePage from './pages/FavouritePage';
 
 function App() {
-
+  
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="/" element={<HomePage />} />
+        <Route path="home" element={<HomePage />} />
+        <Route path="favourite" element={<FavouritePage />} />
+      </>
+    )
+  );
 
   return (
-    <div>
-      <AppRoutes/>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
-
-export default App
-
-
+export default App;
