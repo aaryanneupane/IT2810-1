@@ -1,19 +1,17 @@
-import React from 'react'
-import { useState } from 'react';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '/vite.svg';
-import '../App.css';
+import { useState } from "react";
+import reactLogo from "../assets/react.svg";
+import viteLogo from "/vite.svg";
+import "../App.css";
 
 const HomePage = () => {
+  const [count, setCount] = useState(0);
 
-    const [count, setCount] = useState(0)
-
-    return (
-        <div>
+  return (
+    <div>
       <header>
         <h1>Welcome to Your Website</h1>
       </header>
-      
+
       <footer>
         <p>&copy; {new Date().getFullYear()} Your Company Name</p>
       </footer>
@@ -37,7 +35,7 @@ const HomePage = () => {
         Click on the Vite and React logos to learn more
       </p>
     </div>
-    )
-}
-  
+  );
+};
+
 export default HomePage;

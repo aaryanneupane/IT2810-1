@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const FavouritePage = () => {
   return (
@@ -10,10 +10,11 @@ const FavouritePage = () => {
         <section>
           <h2>About Us</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in ex vitae justo
-            tincidunt euismod a nec nunc. Fusce congue lectus vel tortor volutpat, a tempus quam
-            convallis. Nullam facilisis, metus a fringilla rhoncus, libero arcu tristique ipsum,
-            nec egestas lorem tortor nec ligula.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
+            ex vitae justo tincidunt euismod a nec nunc. Fusce congue lectus vel
+            tortor volutpat, a tempus quam convallis. Nullam facilisis, metus a
+            fringilla rhoncus, libero arcu tristique ipsum, nec egestas lorem
+            tortor nec ligula.
           </p>
         </section>
         <section>
@@ -27,7 +28,8 @@ const FavouritePage = () => {
         <section>
           <h2>Contact Us</h2>
           <p>
-            Feel free to reach out to us at <a href="mailto:contact@example.com">contact@example.com</a>.
+            Feel free to reach out to us at{" "}
+            <a href="mailto:contact@example.com">contact@example.com</a>.
           </p>
         </section>
       </main>
@@ -36,6 +38,6 @@ const FavouritePage = () => {
       </footer>
     </div>
   );
-}
+};
 
 export default FavouritePage;
