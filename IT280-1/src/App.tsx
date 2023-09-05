@@ -1,10 +1,15 @@
-import React from 'react';
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import FavouritePage from './pages/FavouritePage';
+import React from "react";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import FavouritePage from "./pages/FavouritePage";
+import "./App.css";
 
 function App() {
-  
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>

@@ -1,0 +1,9 @@
+.header {
+  background-color: darkblue;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  padding: 50px;
+  display: flex;
+  width: 100%;
+}
