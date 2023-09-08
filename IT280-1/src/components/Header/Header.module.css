@@ -1,0 +1,15 @@
+.header {
+  background-color: darkblue;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  
+}
+
+.header-image {
+  width: 5px% ;
+}

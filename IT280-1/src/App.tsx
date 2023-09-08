@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import FavouritePage from "./pages/FavouritePage";
+import "./App.css";
 
 function App() {
   const router = createBrowserRouter(
