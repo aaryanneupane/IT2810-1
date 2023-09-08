@@ -1,12 +1,6 @@
 import Header from "../components/Header/Header";
 import Button from "../components/Button/Button";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
+import {useQuery} from '@tanstack/react-query';
 
 import { fetchData } from '../api'; // Adjust the path accordingly
 
@@ -16,6 +10,18 @@ const HomePage = () => {
     queryFn: fetchData,    // Use your data fetching function
   });
 
+  // Helper function to sort currencies alphabetically
+  const sortCurrencies = (rates: Record<string, number>) => {
+    return Object.entries(rates)
+      .sort(([currencyA], [currencyB]) => currencyA.localeCompare(currencyB))
+      .reduce((sortedRates, [currency, rate]) => {
+        sortedRates[currency] = rate;
+        return sortedRates;
+      }, {} as Record<string, number>);
+  };
+
+  
+
   return (
     <div style={{ width: "100vw" }}>
       <Header />
@@ -24,13 +30,22 @@ const HomePage = () => {
         {query.isLoading && <p>Loading...</p>}
         {query.isError && <p>Error fetching data</p>}
         {query.data && (
-          <ul>
-            {Object.entries((query.data as { rates: Record<string, number> }).rates).map(([currency, rate]) => (
-              <li key={currency}>
-                {currency}: {rate}
-              </li>
-            ))}
-          </ul>
+          <table>
+            <thead>
+              <tr>
+                <th>Currency</th>
+                <th>Exchange Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(sortCurrencies(query.data.rates)).map(([currency, rate]) => (
+                <tr key={currency}>
+                  <td>{currency}</td>
+                  <td>{rate}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
       <Button />

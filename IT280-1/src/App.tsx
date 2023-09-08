@@ -5,9 +5,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
@@ -24,7 +21,6 @@ function App() {
     createRoutesFromElements(
       <>
         <Route path="/" element={<HomePage />} />
-        <Route path="home" element={<HomePage />} />
         <Route path="favourite" element={<FavouritePage />} />
       </>,
     ),
