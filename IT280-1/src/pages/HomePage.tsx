@@ -1,8 +1,7 @@
 import Header from "../components/Header/Header";
-import Button from "../components/Button/Button";
-import {useQuery} from '@tanstack/react-query';
-
+import { useQuery } from '@tanstack/react-query';
 import { fetchData } from '../api'; // Adjust the path accordingly
+import '../styles/HomePage.css'; // Import the CSS file
 
 const HomePage = () => {
   const query = useQuery({
@@ -20,17 +19,15 @@ const HomePage = () => {
       }, {} as Record<string, number>);
   };
 
-  
-
   return (
-    <div style={{ width: "100vw" }}>
+    <div>
       <Header />
-      <div>
-        <h1>Valuta Gutta</h1>
+      <div className="container"> 
+        <h1 className="header-text">Valuta Gutta</h1> 
         {query.isLoading && <p>Loading...</p>}
         {query.isError && <p>Error fetching data</p>}
         {query.data && (
-          <table>
+          <table className="currency-table"> 
             <thead>
               <tr>
                 <th>Currency</th>
