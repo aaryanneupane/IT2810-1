@@ -1,15 +1,18 @@
 .header {
-  background-color: darkblue;
+  background-color: rgb(87, 87, 83);
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  padding: 50px;
+  height: 150px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: flex-start; /* Place items at the start of the container (left) */
+  align-items: center; /* Center vertically */
+  padding-left: 0px; /* Add left padding to create spacing */
   width: 100%;
-  
 }
 
-.header-image {
-  width: 5px% ;
+.image {
+  width: 400px; /* Adjust the width as needed */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
 }
+
