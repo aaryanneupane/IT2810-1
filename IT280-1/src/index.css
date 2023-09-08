@@ -6,17 +6,17 @@ body {
   margin: 0;
 }
 body {
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(127, 124, 124);
 }
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
   body {
-    background-color: rgb(81, 81, 108);
+    background-color: rgb(127, 124, 124);
   }
 } /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
   body {
-    background-color: rgb(88, 83, 110);
+    background-color: rgb(234, 231, 231);
   }
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 }

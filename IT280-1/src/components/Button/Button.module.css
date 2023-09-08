@@ -1,3 +1,10 @@
 .button {
-  background-color: aqua;
+  background-color: rgb(255, 255, 255);
+  padding: 15px 24px 15px 24px; 
+
+
+  font-size: 20px;
+  border-radius: 15px;
+  margin-left: auto; 
+  color: rgb(87, 87, 83);
 }
