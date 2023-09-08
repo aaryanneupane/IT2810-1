@@ -48,7 +48,6 @@ const HomePage = () => {
           </table>
         )}
       </div>
-      <Button />
     </div>
   );
 };
