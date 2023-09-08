@@ -76,24 +76,24 @@ body {
 }
 
 .currency-list {
-    display: flex;
-    flex-wrap: wrap; /* Wrap currencies to the next row if they don't fit horizontally */
-    justify-content: space-between; /* Adjust to control the spacing between currencies */
-  }
+  display: flex;
+  flex-wrap: wrap; /* Wrap currencies to the next row if they don't fit horizontally */
+  justify-content: space-between; /* Adjust to control the spacing between currencies */
+}
 
 .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 16px;
-  }
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
 
 .button {
-    background-color: rgb(255, 255, 255);
-    padding: 15px 24px;
-    font-size: 20px;
-    border-radius: 15px;
-    margin-top: 16px; /* Add margin to push the button down a bit */
-    color: rgb(87, 87, 83);
-    cursor: pointer;
-    display: inline-block; /* Make the button a block-level element */
-  }
+  background-color: rgb(255, 255, 255);
+  padding: 15px 24px;
+  font-size: 20px;
+  border-radius: 15px;
+  margin-top: 16px; /* Add margin to push the button down a bit */
+  color: rgb(87, 87, 83);
+  cursor: pointer;
+  display: inline-block; /* Make the button a block-level element */
+}

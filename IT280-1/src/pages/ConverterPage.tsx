@@ -3,7 +3,7 @@ import Header from "../components/Header/Header";
 const ConverterPage = () => {
   return (
     <div className="home-page">
-      <Header/>
+      <Header />
       <main>
         <section>
           <h2>About Us</h2>

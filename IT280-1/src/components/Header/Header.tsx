@@ -9,18 +9,18 @@ export default function Header() {
     navigate('/converter');
   }
 
-  return( 
+  return (
     <div className={styles.header}>
       <img
         className={styles.image}
-        src={myImage} 
-        alt="My Logo" 
-        onClick = { () => navigate('/')}
+        src={myImage}
+        alt="My Logo"
+        onClick={() => navigate('/')}
       />
-    
-    <button className={styles.button} onClick={handleButtonClick}>Converter</button>
 
-    
+      <button className={styles.button} onClick={handleButtonClick}>Converter</button>
+
+
     </div>
   );
 }
