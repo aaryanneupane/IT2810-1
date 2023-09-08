@@ -9,8 +9,8 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import HomePage from "./pages/HomePage";
-import FavouritePage from "./pages/FavouritePage";
 import "./App.css";
+import ConverterPage from "./pages/ConverterPage";
 
 
 const queryClient = new QueryClient()
@@ -21,7 +21,7 @@ function App() {
     createRoutesFromElements(
       <>
         <Route path="/" element={<HomePage />} />
-        <Route path="favourite" element={<FavouritePage />} />
+        <Route path="converter" element={<ConverterPage />} />
       </>,
     ),
   );

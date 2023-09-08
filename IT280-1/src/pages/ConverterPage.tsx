@@ -1,9 +1,9 @@
-const FavouritePage = () => {
+import Header from "../components/Header/Header";
+
+const ConverterPage = () => {
   return (
     <div className="home-page">
-      <header>
-        <h1>Welcome to Your Website</h1>
-      </header>
+      <Header/>
       <main>
         <section>
           <h2>About Us</h2>
@@ -38,4 +38,4 @@ const FavouritePage = () => {
   );
 };
 
-export default FavouritePage;
+export default ConverterPage;

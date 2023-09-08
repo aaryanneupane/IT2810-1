@@ -1,18 +1,25 @@
-import MyButton from "../Button/Button";
 import styles from "./Header.module.css";
 import myImage from './myLogo.png';
-
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/converter');
+  }
+
   return( 
     <div className={styles.header}>
       <img
         className={styles.image}
         src={myImage} 
         alt="My Logo" 
+        onClick = { () => navigate('/')}
       />
     
-    <MyButton></MyButton>
+    <button className={styles.button} onClick={handleButtonClick}>Converter</button>
+
     
     </div>
   );
