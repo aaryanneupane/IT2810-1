@@ -11,20 +11,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Header styles */
-.header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0; /* Add padding to the top and bottom */
-    margin-bottom: 1rem; /* Optional margin at the bottom */
-    width: 100%; /* Cover the entire width of the page */
-  }
-  
-  .header h1 {
-    font-size: 2rem;
-  }
-
 /* Main content container */
 .container {
   max-width: 800px;
@@ -88,3 +74,26 @@ body {
     padding: 1rem;
   }
 }
+
+.currency-list {
+    display: flex;
+    flex-wrap: wrap; /* Wrap currencies to the next row if they don't fit horizontally */
+    justify-content: space-between; /* Adjust to control the spacing between currencies */
+  }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+.button {
+    background-color: rgb(255, 255, 255);
+    padding: 15px 24px;
+    font-size: 20px;
+    border-radius: 15px;
+    margin-top: 16px; /* Add margin to push the button down a bit */
+    color: rgb(87, 87, 83);
+    cursor: pointer;
+    display: inline-block; /* Make the button a block-level element */
+  }

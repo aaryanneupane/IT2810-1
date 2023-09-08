@@ -10,6 +10,7 @@
   padding-left: 0px; /* Add left padding to create spacing */
   padding-top: 25px; 
   width: 100%;
+  z-index: 1; /* This is to make sure the currency component doesn't scroll over the header*/
 }
 
 .image {

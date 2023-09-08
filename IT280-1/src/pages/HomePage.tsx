@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import Header from "../components/Header/Header";
 import { useQuery } from '@tanstack/react-query';
 import { fetchData } from '../api'; // Adjust the path accordingly
 import '../styles/HomePage.css'; // Import the CSS file
+import Currency from '../components/Currency/currency';
 
 const HomePage = () => {
+
+  const initialDisplayCount = 10; // Number of currencies to initially display
+  const [displayCount, setDisplayCount] = useState(initialDisplayCount);
+
   const query = useQuery({
     queryKey: ['apiData'], // Replace with the correct query key if needed
     queryFn: fetchData,    // Use your data fetching function
@@ -19,34 +25,42 @@ const HomePage = () => {
       }, {} as Record<string, number>);
   };
 
+  // Check if the data is available before rendering
+  if (query.isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (query.isError || !query.data) {
+    return <p>Error fetching data</p>;
+  }
+
+  // Slice the currencies to display only the specified count
+  const sortedCurrencies = sortCurrencies(query.data.rates);
+  const currenciesToDisplay = Object.entries(sortedCurrencies).slice(0, displayCount);
+
+  const handleLoadMore = () => {
+    // Increase the display count to load more currencies
+    setDisplayCount(prevCount => prevCount + 10); // Load the next 10 currencies
+  };
+
   return (
-    <div>
-      <Header />
-      <div className="container"> 
-        <h1 className="header-text">Valuta Gutta</h1> 
-        {query.isLoading && <p>Loading...</p>}
-        {query.isError && <p>Error fetching data</p>}
-        {query.data && (
-          <table className="currency-table"> 
-            <thead>
-              <tr>
-                <th>Currency</th>
-                <th>Exchange Rate</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.entries(sortCurrencies(query.data.rates)).map(([currency, rate]) => (
-                <tr key={currency}>
-                  <td>{currency}</td>
-                  <td>{rate}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+  <div>
+    <Header />
+    <div className="container">
+      <h1 className="header-text">Valuta Gutta</h1>
+      <div className="currency-container">
+        {currenciesToDisplay.map(([currency, rate]) => (
+          <Currency key={currency} currency={currency} rate={rate} />
+        ))}
+      </div>
+      <div className="button-container"> {/* New button container */}
+        {currenciesToDisplay.length < Object.keys(sortedCurrencies).length && (
+          <button className="button" onClick={handleLoadMore}>Load More</button>
         )}
       </div>
     </div>
+  </div>
   );
-};
+}
 
 export default HomePage;
