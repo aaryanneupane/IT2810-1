@@ -1,15 +1,25 @@
-import React from "react";
 import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 import HomePage from "./pages/HomePage";
 import FavouritePage from "./pages/FavouritePage";
 import "./App.css";
 
+
+const queryClient = new QueryClient()
+
 function App() {
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
@@ -20,10 +30,16 @@ function App() {
     ),
   );
 
+
+
+
   return (
     <>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </>
+    
   );
 }
 
