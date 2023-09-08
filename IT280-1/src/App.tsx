@@ -16,8 +16,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
         <Route path="favourite" element={<FavouritePage />} />
-      </>
-    )
+      </>,
+    ),
   );
 
   return (
