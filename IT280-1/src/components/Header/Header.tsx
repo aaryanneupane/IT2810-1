@@ -18,7 +18,7 @@ export default function Header() {
         onClick={() => navigate('/')}
       />
 
-      <button className={styles.button} onClick={handleButtonClick}>Converter</button>
+      <button className={styles.button} onClick={handleButtonClick}>Favourites</button>
 
 
     </div>
