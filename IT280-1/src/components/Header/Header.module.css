@@ -8,18 +8,17 @@
   justify-content: flex-start; /* Place items at the start of the container (left) */
   align-items: center; /* Center vertically */
   padding-left: 0px; /* Add left padding to create spacing */
-  padding-top: 25px; 
+  padding-top: 25px;
   width: 100%;
+  z-index: 1; /* This is to make sure the currency component doesn't scroll over the header*/
 }
 
 .image {
   width: 400px; /* Adjust the width as needed */
   height: auto; /* Automatically adjust the height to maintain aspect ratio */
   padding: 15px 24px 15px 24px;
-  cursor: pointer
-
+  cursor: pointer;
 }
-
 
 .button {
   background-color: rgb(255, 255, 255);
@@ -29,7 +28,5 @@
   margin-left: auto;
   margin-right: 40px;
   color: rgb(87, 87, 83);
-  cursor: pointer
+  cursor: pointer;
 }
-
-

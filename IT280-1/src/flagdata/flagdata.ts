@@ -3,14 +3,12 @@ export type CurrencyFlagMap = {
 };
 
 export const currencyFlags = {
-    USD: 'usd.png',
-    EUR: 'eur.png',
-    GBP: 'gbp.png',
-    AUD: 'aud.png',
-    CAD: 'cad.png',
-    NOK: 'nok.png',
-    SEK: 'sek.png',
-    JPY: 'jpy.png'
-  };
-
-
+  USD: "usd.png",
+  EUR: "eur.png",
+  GBP: "gbp.png",
+  AUD: "aud.png",
+  CAD: "cad.png",
+  NOK: "nok.png",
+  SEK: "sek.png",
+  JPY: "jpy.png",
+};

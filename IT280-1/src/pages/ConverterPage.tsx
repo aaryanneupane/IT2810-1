@@ -1,41 +1,81 @@
 import Header from "../components/Header/Header";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { fetchData } from "../api"; // Adjust the path accordingly
+import "../styles/FavouritesPage.css"; // Import the CSS file
+import Currency from "../components/Currency/Currency";
 
-const ConverterPage = () => {
+const FavouritesPage = () => {
+  const initialDisplayCount = 10; // Number of currencies to initially display
+  const [displayCount, setDisplayCount] = useState(initialDisplayCount);
+
+  const query = useQuery({
+    queryKey: ["apiData"], // Replace with the correct query key if needed
+    queryFn: fetchData, // Use your data fetching function
+  });
+
+  // Helper function to sort currencies alphabetically
+  const sortCurrencies = (rates: Record<string, number>) => {
+    return Object.entries(rates)
+      .sort(([currencyA], [currencyB]) => currencyA.localeCompare(currencyB))
+      .reduce(
+        (sortedRates, [currency, rate]) => {
+          sortedRates[currency] = rate;
+          return sortedRates;
+        },
+        {} as Record<string, number>
+      );
+  };
+
+  // Check if the data is available before rendering
+  if (query.isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (query.isError || !query.data) {
+    return <p>Error fetching data</p>;
+  }
+
+  // Slice the currencies to display only the specified count
+  const sortedCurrencies = sortCurrencies(query.data.rates);
+  const currenciesToDisplay = Object.entries(sortedCurrencies).slice(
+    0,
+    displayCount
+  );
+
+  const handleLoadMore = () => {
+    // Increase the display count to load more currencies
+    setDisplayCount((prevCount) => prevCount + 10); // Load the next 10 currencies
+  };
+
   return (
-    <div className="home-page">
-      <Header/>
-      <main>
-        <section>
-          <h2>About Us</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
-            ex vitae justo tincidunt euismod a nec nunc. Fusce congue lectus vel
-            tortor volutpat, a tempus quam convallis. Nullam facilisis, metus a
-            fringilla rhoncus, libero arcu tristique ipsum, nec egestas lorem
-            tortor nec ligula.
-          </p>
-        </section>
-        <section>
-          <h2>Our Services</h2>
-          <ul>
-            <li>Service 1</li>
-            <li>Service 2</li>
-            <li>Service 3</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Contact Us</h2>
-          <p>
-            Feel free to reach out to us at{" "}
-            <a href="mailto:contact@example.com">contact@example.com</a>.
-          </p>
-        </section>
-      </main>
-      <footer>
-        <p>&copy; {new Date().getFullYear()} Your Company Name</p>
-      </footer>
+    <div>
+      <Header />
+      <div className="container">
+        <h1 className="header-text">Your favourite currencies</h1>
+        <div className="currency-container">
+          {currenciesToDisplay.map(([currency, rate]) => (
+            <Currency
+              key={currency}
+              currency={currency}
+              rate={rate}
+              favourite={false}
+            />
+          ))}
+        </div>
+        <div className="button-container">
+          {" "}
+          {/* New button container */}
+          {currenciesToDisplay.length <
+            Object.keys(sortedCurrencies).length && (
+            <button className="button" onClick={handleLoadMore}>
+              Load More
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default ConverterPage;
+export default FavouritesPage;

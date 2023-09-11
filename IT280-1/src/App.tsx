@@ -4,30 +4,22 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import HomePage from "./pages/HomePage";
 import "./App.css";
 import ConverterPage from "./pages/ConverterPage";
 
-
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
         <Route path="/" element={<HomePage />} />
         <Route path="converter" element={<ConverterPage />} />
-      </>,
-    ),
+      </>
+    )
   );
-
-
-
 
   return (
     <>
@@ -35,7 +27,6 @@ function App() {
         <RouterProvider router={router} />
       </QueryClientProvider>
     </>
-    
   );
 }
 
