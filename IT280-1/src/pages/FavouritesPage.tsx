@@ -1,7 +1,7 @@
 import Header from "../components/Header/Header";
 import { useState, useEffect } from "react";
 import "../styles/FavouritesPage.css"; // Import the CSS file
-import Currency from "../components/Currency/Currency";
+import Currency from "../components/Currency/FavouritepageCurrency";
 
 interface FavouritePageProps {
   apiData: { rates: Record<string, number> };
@@ -18,7 +18,7 @@ const FavouritesPage: React.FC<FavouritePageProps> = ({ apiData }) => {
   >([]);
 
   useEffect(() => {
-    // Load favorited currencies from local storage when the component mounts
+    // Load favourited currencies from local storage when the component mounts
     const storedFavourites = localStorage.getItem("favourites");
     if (storedFavourites) {
       const favouritesData = JSON.parse(storedFavourites);
@@ -26,29 +26,28 @@ const FavouritesPage: React.FC<FavouritePageProps> = ({ apiData }) => {
     }
   }, []);
 
-  // If apiData is not available yet, render "Loading..."
-  if (!apiData) {
-    return <p>Loading...</p>;
-  }
-
   useEffect(() => {
-    // Filter the currencies to display based on the favorites array
-    const currenciesToDisplay = favourites
-      .filter((favorite) =>
-        Object.prototype.hasOwnProperty.call(apiData?.rates, favorite.currency),
-      )
-      .slice(0, displayCount);
+    if (apiData) {
+      // Filter the currencies to display based on the favorites array
+      const currenciesToDisplay = favourites
+        .filter((favorite) =>
+          Object.prototype.hasOwnProperty.call(
+            apiData?.rates,
+            favorite.currency,
+          ),
+        )
+        .slice(0, displayCount);
 
-    // Convert the currencies to display to include rates and isFavourite
-    const currenciesWithRatesAndFavourites = currenciesToDisplay.map(
-      (favorite) => ({
-        currency: favorite.currency,
-        rate: apiData.rates[favorite.currency],
-        isFavourite: favorite.isFavourite,
-      }),
-    );
-
-    setDisplayCurrencies(currenciesWithRatesAndFavourites);
+      // Convert the currencies to display to include rates and isFavourite
+      const currenciesWithRatesAndFavourites = currenciesToDisplay.map(
+        (favorite) => ({
+          currency: favorite.currency,
+          rate: apiData.rates[favorite.currency],
+          isFavourite: favorite.isFavourite,
+        }),
+      );
+      setDisplayCurrencies(currenciesWithRatesAndFavourites);
+    }
   }, [favourites, displayCount, apiData]);
 
   const handleLoadMore = () => {
@@ -68,6 +67,10 @@ const FavouritesPage: React.FC<FavouritePageProps> = ({ apiData }) => {
     // Update the local storage with the new array
     localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
   };
+
+  if (!apiData) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div>

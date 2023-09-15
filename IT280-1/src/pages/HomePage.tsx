@@ -38,6 +38,13 @@ const HomePage: React.FC<HomePageProps> = ({ apiData }) => {
         Previous currency
       </button>
       <div>
+        <div>
+          <SearchBar
+            currenciesToDisplay={currenciesToDisplay}
+            onCurrencySelect={setIterate}
+          />
+        </div>
+
         <HomepageCurrency
           key={displayCurrency[0]}
           currency={displayCurrency[0]}

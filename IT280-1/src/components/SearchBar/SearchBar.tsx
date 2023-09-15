@@ -23,7 +23,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           cc
             .code(code)
             ?.currency.split(" ") // Breaks the currency into individual words
-            .some((word) => word.toLowerCase().startsWith(search.toLowerCase())) // Checks if any word starts with the search string
+            .some((word) =>
+              word.toLowerCase().startsWith(search.toLowerCase()),
+            ), // Checks if any word starts with the search string
       );
 
       setFilteredCurrencies(filtered);
@@ -51,7 +53,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             }}
             role="button"
             tabIndex={0}
-            onKeyPress={() => {}}
             className="dropdown-option"
           >
             {cc.code(code)?.currency ?? code} - {rate.toFixed(2)}
@@ -61,12 +62,3 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     </div>
   );
 };
-
-
-/*  Put this into the homepage.tsx file
-     <div>
-        <SearchBar
-          currenciesToDisplay={currenciesToDisplay}
-          onCurrencySelect={setIterate}
-        />
-      </div> */

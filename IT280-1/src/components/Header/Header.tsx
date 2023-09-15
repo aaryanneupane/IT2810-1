@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import myImage from "./myLogo.png";
+import myImage from "../../../public/icon-logo.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
@@ -11,13 +11,14 @@ export default function Header() {
 
   return (
     <div className={styles.header}>
-      <img
-        className={styles.image}
-        src={myImage}
-        alt="My Logo"
-        onClick={() => navigate("/")}
-      />
-
+      <div>
+        <img
+          className={styles.image}
+          src={myImage}
+          alt="My Logo"
+          onClick={() => navigate("/")}
+        />
+      </div>
       <button className={styles.button} onClick={handleButtonClick}>
         Favourites
       </button>
