@@ -5,6 +5,7 @@ import { fetchData } from "../api"; // Adjust the path accordingly
 import HomepageCurrency from "../components/HomepageCurrency/HomepageCurrency";
 import * as cc from "currency-codes";
 import "../styles/HomePage.css"; // Import the CSS file
+import { SearchBar } from "../components/SearchBar/SearchBar";
 
 const HomePage = () => {
   const query = useQuery({
