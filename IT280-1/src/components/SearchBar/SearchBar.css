@@ -1,17 +1,18 @@
 /* Style for the search bar */
 .search-bar {
-  width: 70%; 
+  width: 70%;
   max-width: 600px;
   margin: 0 auto; /* centers the search bar */
-  background-color: white; 
+  background-color: white;
   border-radius: 8px; /* rounded corners */
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15); /* small shadow for a "lifting effect" */
   position: relative;
+  top: 70px;
 }
 
 /* Style for options-container */
 .search-bar .options {
-  position: absolute; 
+  position: absolute;
   width: 100%; /* full width of the parent */
   max-height: 200px; /* limit height */
   overflow-y: auto; /* make scrollable if needed */
@@ -24,12 +25,12 @@
 
 /* style for the search input */
 .search-bar input {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-  }
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
 
 /* style for dropdown options */
 .dropdown-option {

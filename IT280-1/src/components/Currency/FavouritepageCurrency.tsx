@@ -1,4 +1,4 @@
-import styles from "./Currency.module.css";
+import styles from "./FavourtitepageCurrency.module.css";
 import * as cc from "currency-codes";
 
 interface CurrencyProps {
