@@ -1,0 +1,64 @@
+.currency-card {
+  background-color: #ffffff;
+  border: 4px solid #ccc;
+  border-radius: 8px;
+  padding: 1px;
+  margin: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between; /* Distribute items horizontally with maximum space */
+  align-items: center;
+  position: relative;
+  z-index: 0; /* Add a lower z-index value for currency components */
+}
+
+.currency-favorite {
+  background-color: gray;
+  color: white;
+  border-radius: 15px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute; /* Position the Favorite button absolutely */
+  top: 80%; /* Move it to the vertical center */
+  left: 50%; /* Move it to the horizontal center */
+  transform: translate(-50%, -50%);
+}
+
+/* Style for the hovered state */
+.currency-favorite:hover {
+  background-color: lightcoral; /* Red tint on hover */
+}
+
+/* Style for the pressed state */
+.currency-favorite.favorite {
+  background-color: lightcoral; /* Lighter shade of red when pressed */
+}
+
+.currency-flag {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+}
+
+.currency-details {
+  flex: 1;
+}
+
+.currency-name {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.exchange-rate {
+  font-size: 20px;
+  margin-top: 8px;
+  color: #555;
+  text-align: center;
+}

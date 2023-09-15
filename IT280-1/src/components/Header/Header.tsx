@@ -6,7 +6,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/converter');
+    navigate('/favourites');
   }
 
   return (
