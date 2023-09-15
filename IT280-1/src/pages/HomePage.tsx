@@ -18,22 +18,14 @@ const HomePage: React.FC<HomePageProps> = ({ apiData }) => {
 
   // Slice the currencies to display only the specified count
   const currenciesToDisplay: [string, number][] = Object.entries(
-    apiData?.rates ?? {}
+    apiData?.rates ?? {},
   ).map(([currencyCode, rate]) => [currencyCode, rate as number]);
 
   // Function to handle "Previous" button click
-  const handlePreviousClick = () => {
-    if (iterate > 0) {
-      setIterate(iterate - 1);
-    }
-  };
+  const handlePreviousClick = () => setIterate(iterate > 0 ? iterate - 1 : 169);
 
   // Function to handle "Next" button click
-  const handleNextClick = () => {
-    if (iterate < currenciesToDisplay.length - 1) {
-      setIterate(iterate + 1);
-    }
-  };
+  const handleNextClick = () => setIterate(iterate < 169 ? iterate + 1 : 0);
 
   // Get the currency to display based on the current index
   const displayCurrency = currenciesToDisplay[iterate];
@@ -47,8 +39,6 @@ const HomePage: React.FC<HomePageProps> = ({ apiData }) => {
       <div>
         <HomepageCurrency
           key={displayCurrency[0]}
-          // currencyCode={displayCurrency[0]}
-          // currency={cc.code(displayCurrency[0])?.currency ?? displayCurrency[0]}
           currency={displayCurrency[0]}
           rate={displayCurrency[1]}
         />

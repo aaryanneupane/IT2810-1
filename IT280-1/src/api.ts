@@ -6,7 +6,9 @@ export async function fetchData() {
   );
 
   if (!response.ok) {
-    throw new Error("Network response was not ok");
+    throw new Error(
+      "Network response was not ok. Most likely a https error, try a vpn. This usually fixes the issue for me.",
+    );
   }
 
   return response.json();
