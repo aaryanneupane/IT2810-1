@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState } from "react";
 import Header from "../components/Header/Header";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "../api"; // Adjust the path accordingly
@@ -15,7 +15,6 @@ const HomePage = () => {
   const initialIterate = Math.floor(Math.random() * 170);
   const [iterate, setIterate] = useState(initialIterate); // Initial index
 
-
   // Check if the data is available before rendering
   if (query.isLoading) {
     return <p>Loading...</p>;
@@ -31,7 +30,6 @@ const HomePage = () => {
   ).map(([currencyCode, rate]) => [currencyCode, rate as number]);
 
   console.log(currenciesToDisplay.length);
-
 
   // Function to handle "Previous" button click
   const handlePreviousClick = () => {

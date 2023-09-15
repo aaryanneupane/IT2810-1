@@ -9,7 +9,6 @@ interface CurrencyProps {
 }
 
 const Currency: React.FC<CurrencyProps> = ({ currency, rate, favourite }) => {
-
   const [isFavourite, setIsFavourite] = useState(favourite);
 
   const handleFavouriteClick = () => {
@@ -20,11 +19,12 @@ const Currency: React.FC<CurrencyProps> = ({ currency, rate, favourite }) => {
   return (
     <>
       <div className={styles["currency-card"]}>
-
-
         <div className={styles["currency-details"]}>
           <h2 className={styles["currency-name"]}>{currency}</h2>
-          <p className={styles["exchange-rate"]}> 1 EURO ≈ {(rate).toFixed(2)} {currency}</p>
+          <p className={styles["exchange-rate"]}>
+            {" "}
+            1 EURO ≈ {rate.toFixed(2)} {currency}
+          </p>
         </div>
         <button
           className={`${styles["currency-favorite"]} ${
@@ -34,7 +34,6 @@ const Currency: React.FC<CurrencyProps> = ({ currency, rate, favourite }) => {
         >
           Favourite
         </button>
-
       </div>
     </>
   );

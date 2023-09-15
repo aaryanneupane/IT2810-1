@@ -42,25 +42,23 @@
 }
 
 .currency-details {
-    flex: 1;
+  flex: 1;
 }
 
 .currency-name {
-    font-size: 30px;
-    font-weight: bold;
-    font-family: "Times New Roman", Times, serif;
-    text-align: center; 
-    position: absolute;
-    left: 50%;
-    top: 10%;
-    transform: translate(-50%, -50%);
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
 }
 
 .exchange-rate {
   font-size: 20px;
   margin-top: 8px;
   color: #555;
-  text-align: center; 
-
+  text-align: center;
 }
-
