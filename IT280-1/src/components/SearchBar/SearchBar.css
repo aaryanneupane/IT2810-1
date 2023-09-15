@@ -1,49 +1,47 @@
-  
-  /* Style for the search bar */
-  .search-bar {
-    width: 70%; /* specify the width of the search bar */
-    max-width: 600px; /* don't allow it to go beyond 600px */
-    margin: 0 auto; /* centers the search bar */
-    background-color: white; /* make the bar white */
-    border-radius: 8px; /* add rounded corners */
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15); /* small shadow for a "lifting effect" */
-    position: relative;
-  }
+/* Style for the search bar */
+.search-bar {
+  width: 70%; 
+  max-width: 600px;
+  margin: 0 auto; /* centers the search bar */
+  background-color: white; 
+  border-radius: 8px; /* rounded corners */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15); /* small shadow for a "lifting effect" */
+  position: relative;
+}
 
-  .search-bar .options {
-    position: absolute;
-    width: 100%; /* full width of the parent */
-    max-height: 200px; /* limit height */
-    overflow-y: auto; /* make scrollable if needed */
-    border-radius: 8px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    background-color: white;
-    z-index: 1; /* be on top of other elements */
-    top: 45px; /* adjust this as needed; value depends on height of search input */;
-  }
-  
-  
-  
-  /* style for the search input */
-  .search-bar input {
+/* Style for options-container */
+.search-bar .options {
+  position: absolute; 
+  width: 100%; /* full width of the parent */
+  max-height: 200px; /* limit height */
+  overflow-y: auto; /* make scrollable if needed */
+  border-radius: 8px; /* rounded corners */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  z-index: 1; /* be on top of other elements */
+  top: 45px; /* adjust this as needed; value depends on height of search input */
+}
+
+/* style for the search input */
+.search-bar input {
     width: 100%;
     padding: 15px;
     border: none;
     border-radius: 8px;
     font-size: 16px;
   }
-  
-  /* style for dropdown options */
-  .dropdown-option {
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    background-color: white;
-    text-align: start;
-    transition: background-color 0.2s;
-  }
-  
-  /* specified a hover style for dropdown options */
-  .dropdown-option:hover {
-    background-color: #f0f0f0;
-  }
+
+/* style for dropdown options */
+.dropdown-option {
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  background-color: white;
+  text-align: start;
+  transition: background-color 0.2s;
+}
+
+/* specified a hover style for dropdown options */
+.dropdown-option:hover {
+  background-color: #f0f0f0;
+}
