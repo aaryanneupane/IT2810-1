@@ -19,7 +19,6 @@ const HomepageCurrency: React.FC<CurrencyProps> = ({ currency, rate }) => {
           fav.currency === currency && fav.rate === rate
       );
       setIsFavourite(isCurrencyFavorited);
-      console.log(favourites);
     }
   }, [currency, rate]);
 

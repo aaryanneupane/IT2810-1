@@ -1,34 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header/Header";
-import { useQuery } from "@tanstack/react-query";
-import { fetchData } from "../api"; // Adjust the path accordingly
 import HomepageCurrency from "../components/HomepageCurrency/HomepageCurrency";
 import * as cc from "currency-codes";
 import "../styles/HomePage.css"; // Import the CSS file
 
 const HomePage = () => {
-
-  const query = useQuery({
-    queryKey: ["apiData"], // Replace with the correct query key if needed
-    queryFn: fetchData, // Use your data fetching function
-  });
+  // Retrieve the API data from session storage
+  const sessionData = sessionStorage.getItem("apiData");
+  const apiData = sessionData ? JSON.parse(sessionData) : null;
 
   const initialIterate = Math.floor(Math.random() * 170);
   const [iterate, setIterate] = useState(initialIterate); // Initial index
 
+  // Continue with the rest of your code to display the data and handle navigation
 
   // Check if the data is available before rendering
-  if (query.isLoading) {
+  if (!apiData) {
     return <p>Loading...</p>;
-  }
-
-  if (query.isError || !query.data) {
-    return <p>Error fetching data</p>;
   }
 
   // Slice the currencies to display only the specified count
   const currenciesToDisplay: [string, number][] = Object.entries(
-    query.data.rates
+    apiData?.rates ?? {}
   ).map(([currencyCode, rate]) => [currencyCode, rate as number]);
 
   // Function to handle "Previous" button click
@@ -57,7 +50,8 @@ const HomePage = () => {
       <div>
         <HomepageCurrency
           key={displayCurrency[0]}
-          currency={cc.code(displayCurrency[0])?.currency ?? displayCurrency[0]}
+          // displayCurrency[0])?.currency ?? displayCurrency[0]
+          currency={displayCurrency[0]}
           rate={displayCurrency[1]}
         />
       </div>

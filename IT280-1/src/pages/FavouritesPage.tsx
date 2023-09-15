@@ -9,6 +9,7 @@ const FavouritesPage = () => {
   const [favourites, setFavourites] = useState<{ currency: string; rate: number; isFavourite: boolean }[]>(
     []
   );
+  const [displayCurrencies, setDisplayCurrencies] = useState<{ currency: string; rate: number; isFavourite: boolean }[]>([]);
 
   useEffect(() => {
     // Load favorited currencies from local storage when the component mounts
@@ -18,6 +19,19 @@ const FavouritesPage = () => {
       setFavourites(favouritesData);
     }
   }, []);
+
+  useEffect(() => {
+    // Retrieve the API data from session storage
+    const sessionData = sessionStorage.getItem("apiData");
+    const apiData = sessionData ? JSON.parse(sessionData) : null;
+
+    // Filter the currencies to display based on the favorites array
+    const currenciesToDisplay = favourites
+      .filter((favorite) => apiData?.rates.hasOwnProperty(favorite.currency))
+      .slice(0, displayCount);
+
+    setDisplayCurrencies(currenciesToDisplay);
+  }, [favourites, displayCount]);
 
   const handleLoadMore = () => {
     // Increase the display count to load more currencies
@@ -30,7 +44,7 @@ const FavouritesPage = () => {
       <div className="container">
         <h1 className="header-text">Your favourite currencies</h1>
         <div className="currency-container">
-          {favourites.slice(0, displayCount).map(({ currency, rate }) => (
+          {displayCurrencies.map(({ currency, rate }) => (
             <HomepageCurrency key={currency} currency={currency} rate={rate} />
           ))}
         </div>
