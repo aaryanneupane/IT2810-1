@@ -18,7 +18,7 @@ const FavouritesPage: React.FC<FavouritePageProps> = ({ apiData }) => {
   >([]);
 
   useEffect(() => {
-    // Load favorited currencies from local storage when the component mounts
+    // Load favourited currencies from local storage when the component mounts
     const storedFavourites = localStorage.getItem("favourites");
     if (storedFavourites) {
       const favouritesData = JSON.parse(storedFavourites);
