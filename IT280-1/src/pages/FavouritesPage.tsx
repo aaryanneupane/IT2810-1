@@ -2,13 +2,16 @@ import Header from "../components/Header/Header";
 import { useState, useEffect } from "react";
 import "../styles/FavouritesPage.css"; // Import the CSS file
 import Currency from "../components/Currency/Currency";
-import * as cc from "currency-codes";
 
-const FavouritesPage = () => {
+interface FavouritePageProps {
+  apiData: { rates: Record<string, number> };
+}
+
+const FavouritesPage: React.FC<FavouritePageProps> = ({ apiData }) => {
   const initialDisplayCount = 10; // Number of currencies to initially display
   const [displayCount, setDisplayCount] = useState(initialDisplayCount);
   const [favourites, setFavourites] = useState<
-    { currency: string; rate: number; isFavourite: boolean }[]
+    { currency: string; isFavourite: boolean }[]
   >([]);
   const [displayCurrencies, setDisplayCurrencies] = useState<
     { currency: string; rate: number; isFavourite: boolean }[]
@@ -23,14 +26,17 @@ const FavouritesPage = () => {
     }
   }, []);
 
-  useEffect(() => {
-    // Retrieve the API data from session storage
-    const sessionData = sessionStorage.getItem("apiData");
-    const apiData = sessionData ? JSON.parse(sessionData) : null;
+  // If apiData is not available yet, render "Loading..."
+  if (!apiData) {
+    return <p>Loading...</p>;
+  }
 
+  useEffect(() => {
     // Filter the currencies to display based on the favorites array
     const currenciesToDisplay = favourites
-      .filter((favorite) => apiData?.rates.hasOwnProperty(favorite.currency))
+      .filter((favorite) =>
+        Object.prototype.hasOwnProperty.call(apiData?.rates, favorite.currency),
+      )
       .slice(0, displayCount);
 
     // Convert the currencies to display to include rates and isFavourite
@@ -39,13 +45,11 @@ const FavouritesPage = () => {
         currency: favorite.currency,
         rate: apiData.rates[favorite.currency],
         isFavourite: favorite.isFavourite,
-      })
+      }),
     );
 
     setDisplayCurrencies(currenciesWithRatesAndFavourites);
-  }, [favourites, displayCount]);
-
-
+  }, [favourites, displayCount, apiData]);
 
   const handleLoadMore = () => {
     // Increase the display count to load more currencies
@@ -53,17 +57,16 @@ const FavouritesPage = () => {
   };
 
   const handleFavouriteClick = (currency: string) => {
-
-    console.log(currency);
     // Filter out the item with the specified currency
-    const updatedFavourites = favourites.filter((fav) => fav.currency !== currency);
-  
+    const updatedFavourites = favourites.filter(
+      (fav) => fav.currency !== currency,
+    );
+
     // Update the state with the new array
     setFavourites(updatedFavourites);
-  
+
     // Update the local storage with the new array
     localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
-  
   };
 
   return (

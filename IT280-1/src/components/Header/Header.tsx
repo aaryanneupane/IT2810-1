@@ -1,13 +1,13 @@
 import styles from "./Header.module.css";
-import myImage from './myLogo.png';
+import myImage from "./myLogo.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/favourites');
-  }
+    navigate("/favourites");
+  };
 
   return (
     <div className={styles.header}>
@@ -15,12 +15,12 @@ export default function Header() {
         className={styles.image}
         src={myImage}
         alt="My Logo"
-        onClick={() => navigate('/')}
+        onClick={() => navigate("/")}
       />
 
-      <button className={styles.button} onClick={handleButtonClick}>Favourites</button>
-
-
+      <button className={styles.button} onClick={handleButtonClick}>
+        Favourites
+      </button>
     </div>
   );
 }
