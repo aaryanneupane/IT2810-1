@@ -18,12 +18,15 @@ body {
   body {
     background-color: rgb(234, 231, 231);
   }
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 }
 
-@media screen and (min-width: 600px){ article {
-  flex-direction: row; }
+@media screen and (min-width: 600px) {
+  article {
+    flex-direction: row;
   }
-  @media screen and (max-width: 600px){ article {
-  flex-direction: column; }
+}
+@media screen and (max-width: 600px) {
+  article {
+    flex-direction: column;
   }
+}

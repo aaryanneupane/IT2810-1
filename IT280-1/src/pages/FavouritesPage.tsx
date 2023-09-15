@@ -1,51 +1,72 @@
 import Header from "../components/Header/Header";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { fetchData } from "../api"; // Adjust the path accordingly
+import { useState, useEffect } from "react";
 import "../styles/FavouritesPage.css"; // Import the CSS file
 import Currency from "../components/Currency/Currency";
 
-const FavouritesPage = () => {
+interface FavouritePageProps {
+  apiData: { rates: Record<string, number> };
+}
+
+const FavouritesPage: React.FC<FavouritePageProps> = ({ apiData }) => {
   const initialDisplayCount = 10; // Number of currencies to initially display
   const [displayCount, setDisplayCount] = useState(initialDisplayCount);
+  const [favourites, setFavourites] = useState<
+    { currency: string; isFavourite: boolean }[]
+  >([]);
+  const [displayCurrencies, setDisplayCurrencies] = useState<
+    { currency: string; rate: number; isFavourite: boolean }[]
+  >([]);
 
-  const query = useQuery({
-    queryKey: ["apiData"], // Replace with the correct query key if needed
-    queryFn: fetchData, // Use your data fetching function
-  });
+  useEffect(() => {
+    // Load favorited currencies from local storage when the component mounts
+    const storedFavourites = localStorage.getItem("favourites");
+    if (storedFavourites) {
+      const favouritesData = JSON.parse(storedFavourites);
+      setFavourites(favouritesData);
+    }
+  }, []);
 
-  // Helper function to sort currencies alphabetically
-  const sortCurrencies = (rates: Record<string, number>) => {
-    return Object.entries(rates)
-      .sort(([currencyA], [currencyB]) => currencyA.localeCompare(currencyB))
-      .reduce(
-        (sortedRates, [currency, rate]) => {
-          sortedRates[currency] = rate;
-          return sortedRates;
-        },
-        {} as Record<string, number>
-      );
-  };
-
-  // Check if the data is available before rendering
-  if (query.isLoading) {
+  // If apiData is not available yet, render "Loading..."
+  if (!apiData) {
     return <p>Loading...</p>;
   }
 
-  if (query.isError || !query.data) {
-    return <p>Error fetching data</p>;
-  }
+  useEffect(() => {
+    // Filter the currencies to display based on the favorites array
+    const currenciesToDisplay = favourites
+      .filter((favorite) =>
+        Object.prototype.hasOwnProperty.call(apiData?.rates, favorite.currency),
+      )
+      .slice(0, displayCount);
 
-  // Slice the currencies to display only the specified count
-  const sortedCurrencies = sortCurrencies(query.data.rates);
-  const currenciesToDisplay = Object.entries(sortedCurrencies).slice(
-    0,
-    displayCount
-  );
+    // Convert the currencies to display to include rates and isFavourite
+    const currenciesWithRatesAndFavourites = currenciesToDisplay.map(
+      (favorite) => ({
+        currency: favorite.currency,
+        rate: apiData.rates[favorite.currency],
+        isFavourite: favorite.isFavourite,
+      }),
+    );
+
+    setDisplayCurrencies(currenciesWithRatesAndFavourites);
+  }, [favourites, displayCount, apiData]);
 
   const handleLoadMore = () => {
     // Increase the display count to load more currencies
     setDisplayCount((prevCount) => prevCount + 10); // Load the next 10 currencies
+  };
+
+  const handleFavouriteClick = (currency: string) => {
+    // Filter out the item with the specified currency
+    const updatedFavourites = favourites.filter(
+      (fav) => fav.currency !== currency,
+    );
+
+    // Update the state with the new array
+    setFavourites(updatedFavourites);
+
+    // Update the local storage with the new array
+    localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
   };
 
   return (
@@ -54,20 +75,19 @@ const FavouritesPage = () => {
       <div className="container">
         <h1 className="header-text">Your favourite currencies</h1>
         <div className="currency-container">
-          {currenciesToDisplay.map(([currency, rate]) => (
+          {displayCurrencies.map(({ currency, rate, isFavourite }) => (
             <Currency
               key={currency}
               currency={currency}
               rate={rate}
-              favourite={false}
+              favourite={isFavourite}
+              voidFunc={() => handleFavouriteClick(currency)}
             />
           ))}
         </div>
         <div className="button-container">
-          {" "}
           {/* New button container */}
-          {currenciesToDisplay.length <
-            Object.keys(sortedCurrencies).length && (
+          {favourites.length > displayCount && (
             <button className="button" onClick={handleLoadMore}>
               Load More
             </button>
