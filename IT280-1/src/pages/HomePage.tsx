@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "../components/Header/Header";
 import HomepageCurrency from "../components/HomepageCurrency/HomepageCurrency";
 import "../styles/HomePage.css"; // Import the CSS file
+import { SearchBar } from "../components/SearchBar/SearchBar";
 
 interface HomePageProps {
   apiData: { rates: Record<string, number> };
