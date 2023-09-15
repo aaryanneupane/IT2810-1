@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState } from "react";
 import Header from "../components/Header/Header";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "../api"; // Adjust the path accordingly
@@ -7,6 +7,7 @@ import * as cc from "currency-codes";
 import "../styles/HomePage.css"; // Import the CSS file
 
 const HomePage = () => {
+
   const query = useQuery({
     queryKey: ["apiData"], // Replace with the correct query key if needed
     queryFn: fetchData, // Use your data fetching function
@@ -29,9 +30,6 @@ const HomePage = () => {
   const currenciesToDisplay: [string, number][] = Object.entries(
     query.data.rates
   ).map(([currencyCode, rate]) => [currencyCode, rate as number]);
-
-  console.log(currenciesToDisplay.length);
-
 
   // Function to handle "Previous" button click
   const handlePreviousClick = () => {
@@ -61,7 +59,6 @@ const HomePage = () => {
           key={displayCurrency[0]}
           currency={cc.code(displayCurrency[0])?.currency ?? displayCurrency[0]}
           rate={displayCurrency[1]}
-          favourite={false}
         />
       </div>
       <button className="next-button" onClick={handleNextClick}>
