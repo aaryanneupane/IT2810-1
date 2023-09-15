@@ -1,20 +1,13 @@
-import React, { useState } from "react";
 import styles from "./Currency.module.css";
 
 interface CurrencyProps {
   currency: string;
   rate: number;
   favourite: boolean;
+  voidFunc: (currency: string) => void;
 }
 
-const Currency: React.FC<CurrencyProps> = ({ currency, rate, favourite }) => {
-  const [isFavourite, setIsFavourite] = useState(favourite);
-
-  const handleFavouriteClick = () => {
-    setIsFavourite(!isFavourite);
-    console.log("Is Favourite: ", isFavourite);
-  };
-
+const Currency: React.FC<CurrencyProps> = ({ currency, rate, favourite, voidFunc }) => {
   return (
     <div className={styles["currency-card"]}>
       <div className={styles["currency-details"]}>
@@ -23,9 +16,8 @@ const Currency: React.FC<CurrencyProps> = ({ currency, rate, favourite }) => {
       </div>
       <button
         className={`${styles["currency-favorite"]} ${
-          isFavourite ? styles["favorite"] : ""
-        }`}
-        onClick={handleFavouriteClick}
+          favourite ? styles["favorite"] : ""
+        }`} onClick={() => voidFunc(currency)}
       >
         Favourite
       </button>

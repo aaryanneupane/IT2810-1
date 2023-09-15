@@ -15,12 +15,12 @@ const HomepageCurrency: React.FC<CurrencyProps> = ({ currency, rate }) => {
     if (storedFavourites) {
       const favourites = JSON.parse(storedFavourites);
       const isCurrencyFavorited = favourites.some(
-        (fav: { currency: string; rate: number; isFavourite: boolean }) =>
-          fav.currency === currency && fav.rate === rate
+        (fav: { currency: string; isFavourite: boolean }) =>
+          fav.currency === currency
       );
       setIsFavourite(isCurrencyFavorited);
     }
-  }, [currency, rate]);
+  }, [currency]);
 
   const handleFavouriteClick = () => {
     // Toggle the favorite state
@@ -31,13 +31,14 @@ const HomepageCurrency: React.FC<CurrencyProps> = ({ currency, rate }) => {
     let favourites = storedFavourites ? JSON.parse(storedFavourites) : [];
     if (isFavourite) {
       favourites = favourites.filter(
-        (fav: { currency: string; rate: number; isFavourite: boolean }) =>
-          fav.currency !== currency || fav.rate !== rate
+        (fav: { currency: string; isFavourite: boolean }) =>
+          fav.currency !== currency
       );
     } else {
-      favourites.push({ currency, rate, isFavourite: true });
+      favourites.push({ currency, isFavourite: true });
     }
     localStorage.setItem("favourites", JSON.stringify(favourites));
+    console.log(favourites);
   };
 
   return (
@@ -46,7 +47,7 @@ const HomepageCurrency: React.FC<CurrencyProps> = ({ currency, rate }) => {
         <div className={styles["currency-details"]}>
           <h2 className={styles["currency-name"]}>{currency}</h2>
           <p className={styles["exchange-rate"]}>
-            1 EURO ≈ {(rate).toFixed(2)} {currency}
+            1 EURO ≈ {rate.toFixed(2)} {currency}
           </p>
         </div>
         <button
