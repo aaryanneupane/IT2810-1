@@ -19,7 +19,7 @@ const HomePage: React.FC<HomePageProps> = ({ apiData }) => {
 
   // Slice the currencies to display only the specified count
   const currenciesToDisplay: [string, number][] = Object.entries(
-    apiData?.rates ?? {},
+    apiData?.rates ?? {}
   ).map(([currencyCode, rate]) => [currencyCode, rate as number]);
 
   // Function to handle "Previous" button click
@@ -34,10 +34,11 @@ const HomePage: React.FC<HomePageProps> = ({ apiData }) => {
   return (
     <div>
       <Header />
-      <button className="prev-button" onClick={handlePreviousClick}>
-        Previous currency
+      <button className="arrow left" onClick={handlePreviousClick}>
+
       </button>
       <div>
+  
         <div>
           <SearchBar
             currenciesToDisplay={currenciesToDisplay}
@@ -51,8 +52,9 @@ const HomePage: React.FC<HomePageProps> = ({ apiData }) => {
           rate={displayCurrency[1]}
         />
       </div>
-      <button className="next-button" onClick={handleNextClick}>
-        Next currency
+
+      <button class="arrow right" onClick={handleNextClick}>
+        
       </button>
     </div>
   );
