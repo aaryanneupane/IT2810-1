@@ -1,7 +1,10 @@
+/// <reference types="vite/client" />
+/// <reference types="vitest" />
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
+// https://www.youtube.com/watch?v=G-4zgIPsjkU&ab_channel=EricWinkDev Used this video to set up the test environment
 export default defineConfig({
   plugins: [react()],
   server: {
@@ -9,8 +12,8 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'jsdom',
-    setupFiles: 'src/test/setup.ts',
-    testMatch: ['./tests/**/*.test.tsx'],
+    environment: "jsdom",
+    css: true,
+    setupFiles:"./src/test/setup.ts"
   }
 });
