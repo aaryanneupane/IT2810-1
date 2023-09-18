@@ -63,10 +63,11 @@ body {
 .arrow {
   background-color: white;
   border: solid darkcyan;
-  border-width: 0 3px 3px 0;
+  border-width: 0 6px 6px 0;
   display: inline-block;
   padding: 20px;
   position: absolute;
+  cursor: pointer;
 }
 
 .right {
