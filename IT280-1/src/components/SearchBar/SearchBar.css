@@ -4,8 +4,10 @@
   max-width: 600px;
   margin: 0 auto; /* centers the search bar */
   background-color: white;
-  border-radius: 8px; /* rounded corners */
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15); /* small shadow for a "lifting effect" */
+  border-radius: 15px; /* rounded corners */
+  border-style: double;
+  border-color: darkcyan;
+  /* box-shadow: 8px 8px 8px rgba(0.15, 0.15, 0.15, 0.15); small shadow for a "lifting effect" */
   position: relative;
   top: 70px;
 }

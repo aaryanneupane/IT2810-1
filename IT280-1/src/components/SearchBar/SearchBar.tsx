@@ -16,6 +16,19 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     [string, number][]
   >([]);
 
+  // Retrieve the search query from session storage on component mount
+  useEffect(() => {
+    const storedSearch = sessionStorage.getItem("searchQuery");
+    if (storedSearch) {
+      setSearch(storedSearch);
+    }
+  }, []);
+
+  // Store the search query in session storage whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem("searchQuery", search);
+  }, [search]);
+
   useEffect(() => {
     if (search !== "") {
       const filtered = currenciesToDisplay.filter(
