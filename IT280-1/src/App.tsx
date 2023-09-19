@@ -4,7 +4,7 @@ import FavouritesPage from "./pages/FavouritesPage";
 
 function App() {
   return (
-    <Router>
+    <Router basename="project1">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="favourites" element={<FavouritesPage />} />
