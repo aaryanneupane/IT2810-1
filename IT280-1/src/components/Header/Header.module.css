@@ -13,14 +13,12 @@
   z-index: 1; /* This is to make sure the currency component doesn't scroll over the header*/
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .header {
     height: 100px; /*Reduce header-height for smaller screens */
     padding-top: 10px; /*Top-padding for vertical adjustments */
   }
-  
-} 
-  
+}
 
 .image {
   width: 80%; /* Adjust the width as needed */
@@ -38,12 +36,11 @@
   margin-right: 10px;
   color: rgb(87, 87, 83);
   cursor: pointer;
-  max-width: 200px; 
+  max-width: 200px;
 }
 
-@media screen and (max-width: 768px){
-  .button{
+@media screen and (max-width: 768px) {
+  .button {
     font-size: 10px;
   }
-  
 }
