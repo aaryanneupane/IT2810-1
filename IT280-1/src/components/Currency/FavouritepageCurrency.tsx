@@ -17,10 +17,10 @@ const Currency: React.FC<CurrencyProps> = ({
   return (
     <div className={styles["currency-card"]}>
       <div className={styles["currency-details"]}>
-        <h2 className={styles["currency-name"]}>
+        <h2 className={styles["currency-name"]} data-testId = "currency-name">
           {cc.code(currency)?.currency ?? currency}
         </h2>
-        <p className={styles["exchange-rate"]}>
+        <p className={styles["exchange-rate"]} data-testId="exchange-rate">
           1 EURO ≈ {rate.toFixed(2)} {currency}
         </p>
       </div>
@@ -28,6 +28,7 @@ const Currency: React.FC<CurrencyProps> = ({
         className={`${styles["currency-favorite"]} ${
           favourite ? styles["favorite"] : ""
         }`}
+        data-testid="currency-favorite"
         onClick={() => voidFunc(currency)}
       >
         Favourite
