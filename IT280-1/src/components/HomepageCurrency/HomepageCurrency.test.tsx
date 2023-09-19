@@ -3,6 +3,7 @@ import {
   act,
   screen,
   fireEvent,
+  waitFor,
 } from "@testing-library/react";
 import HomepageCurrency from "./HomepageCurrency.tsx";
 
@@ -21,7 +22,7 @@ describe("HomepageCurrency", () => {
     await act(async () => {
       expect(screen.getByText("US Dollar")).toBeTruthy(); //Trying different functions, this one checks if there is something in the component that says "US Dollar"
       expect(screen.getByText("1 EURO ≈ 1.12 USD")).toBeTruthy();
-      expect(screen.getByTestId("currency-favourite").textContent).toBe(
+      expect(screen.getByTestId("currency-favourite")).toHaveTextContent(
         "Favourite"
       ); //This one checks more specifically than the last two, it checks if the exact button says "Favourite"
     }); 
@@ -31,17 +32,18 @@ describe("HomepageCurrency", () => {
     await act(async () => {
       fireEvent.click(screen.getByTestId("currency-favourite"));
 
-      expect(localStorage.setItem).toHaveBeenLastCalledWith(
-        "favourites",
-        JSON.stringify([{ currency: "USD", isFavourite: true }])
-      );
+      let storedFavourites = localStorage.getItem("favourites");
+      
+      expect(storedFavourites).not.toBeNull();
+      expect(storedFavourites).toBe(JSON.stringify([{ currency: "USD", isFavourite: true }]));
 
       fireEvent.click(screen.getByTestId("currency-favourite"));
 
-      expect(localStorage.setItem).toHaveBeenLastCalledWith(
-        "favourites",
-        JSON.stringify([])
-      );
+      await waitFor(() => {
+        storedFavourites = localStorage.getItem("favourites");
+        expect(storedFavourites).toBe(JSON.stringify([]));
+      });
+      
     });
   });
 });
