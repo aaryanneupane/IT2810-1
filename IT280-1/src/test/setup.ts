@@ -4,8 +4,7 @@ import '@testing-library/jest-dom';
 
 export const server = setupServer(...handlers)
 
-beforeAll(() => server.listen())  // Start the server
-beforeEach(() => {localStorage.clear()})  // Clear localStorage before each test
+beforeAll(() => server.listen())  
+beforeEach(() => {localStorage.clear()})  
 afterEach(() => server.resetHandlers())  // Reset any runtime request handlers we may add during the tests.
-afterAll(() => server.close())  // Clean up once the tests are done
-
+afterAll(() => server.close())  
