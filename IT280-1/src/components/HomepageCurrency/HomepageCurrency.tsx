@@ -55,6 +55,7 @@ const HomepageCurrency: React.FC<CurrencyProps> = ({ currency, rate }) => {
           className={`${styles["currency-favorite"]} ${
             isFavourite ? styles["favorite"] : ""
           }`}
+          data-testid="currency-favourite"
           onClick={handleFavouriteClick}
         >
           Favourite
