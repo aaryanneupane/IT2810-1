@@ -13,6 +13,7 @@ export default function Header() {
           src={myImage}
           alt="My Logo"
           onClick={() => navigate("/")}
+          data-testid="logo"
         />
       </div>
       {location.pathname !== "/favourites" && (
