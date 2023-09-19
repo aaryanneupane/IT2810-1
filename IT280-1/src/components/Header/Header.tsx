@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import myImage from "../../../public/icon-logo.png";
+import myImage from "/icon-logo.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {

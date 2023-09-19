@@ -1,7 +1,8 @@
 .currency-card {
   background-color: #ffffff;
-  border: 4px solid #ccc;
-  border-radius: 8px;
+  border-style: double;
+  border-color: darkcyan;
+  border-radius: 15px;
   padding: 16px;
   margin: 16px;
   display: flex;
@@ -42,10 +43,12 @@
 .currency-name {
   font-size: 20px;
   font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .exchange-rate {
   font-size: 16px;
   margin-top: 8px;
   color: #555;
+  font-family: Arial, Helvetica, sans-serif;
 }

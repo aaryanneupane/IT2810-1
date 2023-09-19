@@ -34,9 +34,7 @@ const HomePage: React.FC<HomePageProps> = ({ apiData }) => {
   return (
     <div>
       <Header />
-      <button className="prev-button" onClick={handlePreviousClick}>
-        Previous currency
-      </button>
+      <button className="arrow left" onClick={handlePreviousClick}></button>
       <div>
         <div>
           <SearchBar
@@ -51,9 +49,8 @@ const HomePage: React.FC<HomePageProps> = ({ apiData }) => {
           rate={displayCurrency[1]}
         />
       </div>
-      <button className="next-button" onClick={handleNextClick}>
-        Next currency
-      </button>
+
+      <button className="arrow right" onClick={handleNextClick}></button>
     </div>
   );
 };
