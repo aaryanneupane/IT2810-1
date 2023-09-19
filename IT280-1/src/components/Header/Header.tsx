@@ -17,9 +17,10 @@ export default function Header() {
           src={myImage}
           alt="My Logo"
           onClick={() => navigate("/")}
+          data-testid="logo"
         />
       </div>
-      <button className={styles.button} onClick={handleButtonClick}>
+      <button className={styles.button} onClick={handleButtonClick} data-testid="Favourites-button">
         Favourites
       </button>
     </div>
