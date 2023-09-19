@@ -13,9 +13,18 @@
   z-index: 1; /* This is to make sure the currency component doesn't scroll over the header*/
 }
 
+@media screen and (max-width: 768px){
+  .header {
+    height: 100px; /*Reduce header-height for smaller screens */
+    padding-top: 10px; /*Top-padding for vertical adjustments */
+  }
+  
+} 
+  
+
 .image {
-  width: 400px; /* Adjust the width as needed */
-  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  width: 80%; /* Adjust the width as needed */
+  height: 60%; /* Automatically adjust the height to maintain aspect ratio */
   padding: 15px 24px 15px 24px;
   cursor: pointer;
 }
@@ -26,7 +35,15 @@
   font-size: 20px;
   border-radius: 15px;
   margin-left: auto;
-  margin-right: 40px;
+  margin-right: 10px;
   color: rgb(87, 87, 83);
   cursor: pointer;
+  max-width: 200px; 
+}
+
+@media screen and (max-width: 768px){
+  .button{
+    font-size: 10px;
+  }
+  
 }

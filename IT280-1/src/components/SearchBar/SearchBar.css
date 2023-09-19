@@ -1,22 +1,20 @@
 /* Style for the search bar */
 .search-bar {
-  width: 70%;
+  width: 100%;
   max-width: 600px;
   margin: 0 auto; /* centers the search bar */
   background-color: white;
   border-radius: 15px; /* rounded corners */
-  border-style:double;
-  border-color:darkcyan;
-  /* box-shadow: 8px 8px 8px rgba(0.15, 0.15, 0.15, 0.15); small shadow for a "lifting effect" */
+  border: 2px solid darkcyan; /*Grense rundt søkefeltet*/
   position: relative;
   top: 70px;
 }
 
 /* Style for options-container */
 .search-bar .options {
-  position: absolute;
+  position: relative;
   width: 100%; /* full width of the parent */
-  max-height: 200px; /* limit height */
+  max-height: 100%; /* limit height */
   overflow-y: auto; /* make scrollable if needed */
   border-radius: 8px; /* rounded corners */
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
@@ -32,6 +30,7 @@
   border: none;
   border-radius: 8px;
   font-size: 16px;
+  outline: none;
 }
 
 /* style for dropdown options */

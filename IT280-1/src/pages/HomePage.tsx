@@ -53,7 +53,7 @@ const HomePage: React.FC<HomePageProps> = ({ apiData }) => {
         />
       </div>
 
-      <button class="arrow right" onClick={handleNextClick}>
+      <button className="arrow right" onClick={handleNextClick}>
         
       </button>
     </div>
