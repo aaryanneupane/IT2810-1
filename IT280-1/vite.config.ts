@@ -16,5 +16,5 @@ export default defineConfig({
     css: true,
     setupFiles: "./src/test/setup.ts",
   },
-  base: '/project1',
+  base: "/project1",
 });

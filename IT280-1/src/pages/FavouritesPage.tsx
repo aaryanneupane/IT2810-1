@@ -7,20 +7,23 @@ import { fetchData } from "../api"; // Adjust the path accordingly
 
 const FavouritesPage = () => {
   const initialDisplayCount = 10; // Number of currencies to initially display
-  const [displayCount, setDisplayCount] = useState(initialDisplayCount);
+
+  const [displayCount, setDisplayCount] = useState(initialDisplayCount); // The displaying currencies count
+
   const [favourites, setFavourites] = useState<
     { currency: string; isFavourite: boolean }[]
-  >([]);
+  >([]); // The favourited currencies array from local storage
+
   const [displayCurrencies, setDisplayCurrencies] = useState<
     { currency: string; rate: number; isFavourite: boolean }[]
-  >([]);
+  >([]); // The currencies to display
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["apiData"],
     queryFn: fetchData,
   });
 
-  const storedFavourites = localStorage.getItem("favourites");
+  const storedFavourites = localStorage.getItem("favourites"); // Retrieve the favourites from local storage
 
   useEffect(() => {
     // Load favourited currencies from local storage when the component mounts
