@@ -1,14 +1,14 @@
 import styles from "./FavourtitepageCurrency.module.css";
 import * as cc from "currency-codes";
 
-interface CurrencyProps {
+interface FavouritepageCurrencyProps {
   currency: string;
   rate: number;
   favourite: boolean;
   voidFunc: (currency: string) => void;
 }
 
-const Currency: React.FC<CurrencyProps> = ({
+const FavouritepageCurrency: React.FC<FavouritepageCurrencyProps> = ({
   currency,
   rate,
   favourite,
@@ -17,23 +17,26 @@ const Currency: React.FC<CurrencyProps> = ({
   return (
     <div className={styles["currency-card"]}>
       <div className={styles["currency-details"]}>
-        <h2 className={styles["currency-name"]}>
+        <h2 className={styles["currency-name"]} data-testId="currency-name">
           {cc.code(currency)?.currency ?? currency}
         </h2>
-        <p className={styles["exchange-rate"]}>
+        <p className={styles["exchange-rate"]} data-testId="exchange-rate">
           1 EURO ≈ {rate.toFixed(2)} {currency}
         </p>
       </div>
       <button
         className={`${styles["currency-favorite"]} ${
-          favourite ? styles["favorite"] : ""
+          favourite
+            ? styles["currency-favorite-true"]
+            : styles["currency-favorite-false"]
         }`}
+        data-testid="currency-favorite"
         onClick={() => voidFunc(currency)}
       >
-        Favourite
+        Remove
       </button>
     </div>
   );
 };
 
-export default Currency;
+export default FavouritepageCurrency;

@@ -1,10 +1,8 @@
-/* Set a background color */
 body {
   background-color: #f4f4f4;
   font-family: Arial, sans-serif;
 }
 
-/* Main content container */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -14,7 +12,6 @@ body {
   border-radius: 4px;
 }
 
-/* Currency converter form */
 .converter-form {
   margin-top: 1rem;
   padding: 1rem;
@@ -44,7 +41,6 @@ body {
   cursor: pointer;
 }
 
-/* Result section */
 .result {
   margin-top: 1rem;
   padding: 1rem;
@@ -52,7 +48,6 @@ body {
   border-radius: 4px;
 }
 
-/* Footer styles */
 .footer {
   text-align: center;
   margin-top: 2rem;
@@ -61,7 +56,6 @@ body {
   color: #fff;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
@@ -70,8 +64,8 @@ body {
 
 .currency-list {
   display: flex;
-  flex-wrap: wrap; /* Wrap currencies to the next row if they don't fit horizontally */
-  justify-content: space-between; /* Adjust to control the spacing between currencies */
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .button-container {
@@ -85,8 +79,8 @@ body {
   padding: 15px 24px;
   font-size: 20px;
   border-radius: 15px;
-  margin-top: 16px; /* Add margin to push the button down a bit */
+  margin-top: 16px;
   color: rgb(87, 87, 83);
   cursor: pointer;
-  display: inline-block; /* Make the button a block-level element */
+  display: inline-block;
 }

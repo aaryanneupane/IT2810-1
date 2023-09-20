@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import * as cc from "currency-codes";
 import "./SearchBar.css";
 
@@ -15,6 +15,19 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const [filteredCurrencies, setFilteredCurrencies] = useState<
     [string, number][]
   >([]);
+
+  // Retrieve the search query from session storage on component mount
+  useEffect(() => {
+    const storedSearch = sessionStorage.getItem("searchQuery");
+    if (storedSearch) {
+      setSearch(storedSearch);
+    }
+  }, []);
+
+  // Store the search query in session storage whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem("searchQuery", search);
+  }, [search]);
 
   useEffect(() => {
     if (search !== "") {

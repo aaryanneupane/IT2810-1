@@ -1,29 +1,28 @@
-/* Style for the search bar */
 .search-bar {
   width: 100%;
   max-width: 600px;
-  margin: 0 auto; /* centers the search bar */
+  margin: 0 auto;
   background-color: white;
-  border-radius: 15px; /* rounded corners */
-  border: 2px solid darkcyan; /*Grense rundt søkefeltet*/
+  border-radius: 10px;
+  border-style: double;
+  border-color: darkcyan;
   position: relative;
   top: 70px;
 }
 
-/* Style for options-container */
 .search-bar .options {
-  position: relative;
-  width: 100%; /* full width of the parent */
-  max-height: 100%; /* limit height */
-  overflow-y: auto; /* make scrollable if needed */
-  border-radius: 8px; /* rounded corners */
+  position: absolute;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: scroll;
+  border-radius: 8px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
   background-color: white;
-  z-index: 1; /* be on top of other elements */
-  top: 45px; /* adjust this as needed; value depends on height of search input */
+  z-index: 1;
+  top: 45px;
+  right: 0;
 }
 
-/* style for the search input */
 .search-bar input {
   width: 100%;
   padding: 15px;
@@ -33,7 +32,6 @@
   outline: none;
 }
 
-/* style for dropdown options */
 .dropdown-option {
   border: none;
   padding: 15px;
@@ -43,7 +41,6 @@
   transition: background-color 0.2s;
 }
 
-/* specified a hover style for dropdown options */
 .dropdown-option:hover {
-  background-color: #f0f0f0;
+  background-color: lightcyan;
 }

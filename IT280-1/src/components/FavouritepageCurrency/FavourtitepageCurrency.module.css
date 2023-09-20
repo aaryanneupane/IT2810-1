@@ -1,0 +1,69 @@
+.currency-card {
+  background-color: #ffffff;
+  border-style: double;
+  border-color: darkcyan;
+  border-radius: 15px;
+  padding: 16px;
+  margin: 16px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 0; /* Add a lower z-index value for currency components */
+}
+
+.currency-favorite.currency-favorite-true {
+  background-color: gray;
+  color: white;
+  border-radius: 15px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover style for true (favorited) state */
+.currency-favorite.currency-favorite-true:hover {
+  background-color: lightcoral; /* Red tint on hover */
+}
+
+/* Pressed style for true (favorited) state */
+.currency-favorite.currency-favorite-true.favorite {
+  background-color: gray; /* Lighter shade of red when pressed */
+}
+
+/* Default button style for false (not favorited) state */
+.currency-favorite.currency-favorite-false {
+  /* Define your default styles for the false state here */
+}
+
+/* Hover style for false (not favorited) state */
+.currency-favorite.currency-favorite-false:hover {
+  /* Define your hover styles for the false state here */
+}
+
+/* Pressed style for false (not favorited) state */
+.currency-favorite.currency-favorite-false.favorite {
+  /* Define your pressed styles for the false state here */
+}
+
+.currency-flag {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+}
+
+.currency-details {
+  flex: 1;
+}
+
+.currency-name {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.exchange-rate {
+  font-size: 16px;
+  margin-top: 8px;
+  color: #555;
+  font-family: Arial, Helvetica, sans-serif;
+}
