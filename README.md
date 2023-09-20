@@ -29,7 +29,7 @@ Da vil nettsiden åpnes i en localhost i nettleseren din.
 Åpne appen på http://it2810-20.idi.ntnu.no/project1 og sjekk ut nettsiden! 
 
 
-For mer detaljert om utførelsen vår til de ulike kravene, de vedlagt pdf-fil.
+For mer detaljert om utførelsen vår til de ulike kravene og testing, se vedlagt pdf-fil.
 -----------------------------------------------------------------------------------------------------------------------------------------
 Innhenting av api-data:
 
