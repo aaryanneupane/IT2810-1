@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Header from "../components/Header/Header";
 import HomepageCurrency from "../components/HomepageCurrency/HomepageCurrency";
-import "../styles/HomePage.css"; // Import the CSS file
+import "../styles/HomePage.css";
 import { SearchBar } from "../components/SearchBar/SearchBar";
-import { fetchData } from "../api"; // Adjust the path accordingly
+import { fetchData } from "../api";
 import { useQuery } from "@tanstack/react-query";
 
 const HomePage = () => {
@@ -16,6 +16,7 @@ const HomePage = () => {
   });
 
   if (isLoading) {
+    // Display the data fetching status accordingly
     return <p>Loading...</p>;
   } else if (isError) {
     return <p>Error fetching </p>;
@@ -34,8 +35,6 @@ const HomePage = () => {
 
   // Get the currency to display based on the current index
   const displayCurrency = currenciesToDisplay[iterate];
-
-  console.log(displayCurrency);
 
   return (
     <div>

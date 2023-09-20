@@ -3,9 +3,7 @@ import { render, screen, RenderResult, waitFor } from "@testing-library/react";
 import fireEvent from "@testing-library/user-event";
 import handleFavouriteClick from "../../pages/FavouritesPage";
 
-
 const favouriteClick = vi.fn(handleFavouriteClick);
-
 
 describe("Currency", () => {
   let component: RenderResult;
@@ -16,7 +14,7 @@ describe("Currency", () => {
         rate={1.12}
         favourite={true}
         voidFunc={favouriteClick}
-      />
+      />,
     );
   });
 
@@ -24,7 +22,7 @@ describe("Currency", () => {
     expect(screen.getByText("US Dollar")).toBeTruthy();
     expect(screen.getByText("1 EURO ≈ 1.12 USD")).toBeTruthy();
     expect(screen.getByTestId("currency-favorite").textContent).toBe(
-      "Favourite"
+      "Favourite",
     );
   });
 
@@ -33,6 +31,5 @@ describe("Currency", () => {
 
     fireEvent.click(component.getByTestId("currency-favorite"));
     await waitFor(() => expect(favouriteClick).toHaveBeenCalledTimes(1));
-
   });
 });

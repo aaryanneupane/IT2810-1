@@ -1,9 +1,9 @@
 import Header from "../components/Header/Header";
 import { useState, useEffect } from "react";
-import "../styles/FavouritesPage.css"; // Import the CSS file
-import Currency from "../components/Currency/FavouritepageCurrency";
+import "../styles/FavouritesPage.css";
+import Currency from "../components/FavouritepageCurrency/FavouritepageCurrency";
 import { useQuery } from "@tanstack/react-query";
-import { fetchData } from "../api"; // Adjust the path accordingly
+import { fetchData } from "../api";
 
 const FavouritesPage = () => {
   const initialDisplayCount = 10; // Number of currencies to initially display
@@ -65,7 +65,7 @@ const FavouritesPage = () => {
       (fav) => fav.currency !== currency,
     );
 
-    // Update the state with the new array
+    // Update the favourites array
     setFavourites(updatedFavourites);
 
     // Update the local storage with the new array
@@ -93,7 +93,6 @@ const FavouritesPage = () => {
               ))}
             </div>
             <div className="button-container">
-              {/* New button container */}
               {favourites.length > displayCount && (
                 <button className="button" onClick={handleLoadMore}>
                   Load More

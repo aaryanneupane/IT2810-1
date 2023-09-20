@@ -5,18 +5,17 @@
   top: 0;
   height: 150px;
   display: flex;
-  justify-content: flex-start; /* Place items at the start of the container (left) */
-  align-items: center; /* Center vertically */
-  padding-left: 0px; /* Add left padding to create spacing */
+  justify-content: flex-start;
+  align-items: center;
   padding-top: 25px;
   width: 100%;
   z-index: 1; /* This is to make sure the currency component doesn't scroll over the header*/
 }
 
 .image {
-  width: 400px; /* Adjust the width as needed */
-  height: auto; /* Automatically adjust the height to maintain aspect ratio */
-  padding: 15px 24px 15px 24px;
+  width: 200px;
+  height: auto;
+  padding: 15px 24px 15px 20px;
   cursor: pointer;
 }
 
