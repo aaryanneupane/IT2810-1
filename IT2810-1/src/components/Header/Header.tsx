@@ -20,6 +20,7 @@ export default function Header() {
         <button
           className={styles.button}
           onClick={() => navigate("favourites")}
+          data-testId="Favourites-button"
         >
           Favourites
         </button>
