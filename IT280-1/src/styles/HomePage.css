@@ -61,7 +61,7 @@ body {
   border: solid darkcyan;
   border-width: 0 6px 6px 0;
   display: inline-block;
-  padding: 20px;
+
   position: absolute;
   cursor: pointer;
 }
@@ -69,13 +69,58 @@ body {
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
-  right: 75px;
-  top: 62%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+  .right {
+    padding: 15px;
+    right: 10%;
+    top: 40%;
+  }
+}
+@media screen and (max-width: 900px) and (min-width: 450px) {
+  .right {
+    padding: 30px;
+    right: 10%;
+    top: 37.5%;
+  }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 900px) {
+  .right {
+    padding: 30px;
+    right: 5%;
+    top: 60%;
+  }
 }
 
 .left {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
-  left: 75px;
-  top: 62%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+  .left {
+    padding: 15px;
+    left: 10%;
+    top: 40%;
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 450px) {
+  .left {
+    padding: 25px;
+    left: 10%;
+    top: 37.5%;
+  }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 900px) {
+  .left {
+    padding: 30px;
+    left: 5%;
+    top: 60%;
+  }
 }
