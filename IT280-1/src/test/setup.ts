@@ -1,8 +1,7 @@
-import { setupServer } from 'msw/node'
-import { handlers } from '../mocks/Handlers'  
-import '@testing-library/jest-dom';
-import { test } from 'vitest'
-
+import { setupServer } from "msw/node";
+import { handlers } from "../mocks/Handlers";
+import "@testing-library/jest-dom";
+import { test } from "vitest";
 
 export const server = setupServer(...handlers);
 

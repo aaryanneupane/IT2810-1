@@ -11,7 +11,7 @@
   z-index: 0; /* Add a lower z-index value for currency components */
 }
 
-.currency-favorite {
+.currency-favorite.currency-favorite-true {
   background-color: gray;
   color: white;
   border-radius: 15px;
@@ -20,14 +20,29 @@
   transition: background-color 0.3s;
 }
 
-/* Style for the hovered state */
-.currency-favorite:hover {
+/* Hover style for true (favorited) state */
+.currency-favorite.currency-favorite-true:hover {
   background-color: lightcoral; /* Red tint on hover */
 }
 
-/* Style for the pressed state */
-.currency-favorite.favorite {
-  background-color: lightcoral; /* Lighter shade of red when pressed */
+/* Pressed style for true (favorited) state */
+.currency-favorite.currency-favorite-true.favorite {
+  background-color: gray; /* Lighter shade of red when pressed */
+}
+
+/* Default button style for false (not favorited) state */
+.currency-favorite.currency-favorite-false {
+  /* Define your default styles for the false state here */
+}
+
+/* Hover style for false (not favorited) state */
+.currency-favorite.currency-favorite-false:hover {
+  /* Define your hover styles for the false state here */
+}
+
+/* Pressed style for false (not favorited) state */
+.currency-favorite.currency-favorite-false.favorite {
+  /* Define your pressed styles for the false state here */
 }
 
 .currency-flag {
