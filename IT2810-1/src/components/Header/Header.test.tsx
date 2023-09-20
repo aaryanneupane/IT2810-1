@@ -3,13 +3,11 @@ import Header from "./Header";
 import { BrowserRouter } from "react-router-dom";
 
 describe("Header", () => {
-  //Here I would like to test that the buttons in header navigates correctly to the right pages.
   beforeEach(() => {
     render(
       <BrowserRouter>
-        {" "}
-        <Header />{" "}
-      </BrowserRouter>,
+        <Header />
+      </BrowserRouter>
     );
   });
 
@@ -20,7 +18,7 @@ describe("Header", () => {
     });
   });
 
-  test("Navigation to and from favourites", async () => {
+  test("Navigation to and from favourites", async () => { //Checks if the buttons in the header navigates correctly to the right pages.
     await act(async () => {
       fireEvent.click(screen.getByTestId("Favourites-button"));
       expect(global.window.location.pathname).toEqual("/favourites");
