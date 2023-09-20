@@ -1,22 +1,22 @@
-import { render } from '@testing-library/react';
+import { render } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import FavouritesPage from './FavouritesPage';
-import { BrowserRouter as Router } from 'react-router-dom';
+import FavouritesPage from "./FavouritesPage";
+import { BrowserRouter as Router } from "react-router-dom";
 
-describe('FavouritesPage', () => {
-    let queryClient: QueryClient;
-    beforeEach(() => {
-        queryClient = new QueryClient();
-    })
+describe("FavouritesPage", () => {
+  let queryClient: QueryClient;
+  beforeEach(() => {
+    queryClient = new QueryClient();
+  });
 
-    test("snapshot test", () => {
-        const wrapper = render(
-        <QueryClientProvider client={queryClient}>
-            <Router>
-                <FavouritesPage />
-            </Router>
-        </QueryClientProvider>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+  test("snapshot test", () => {
+    const wrapper = render(
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <FavouritesPage />
+        </Router>
+      </QueryClientProvider>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
