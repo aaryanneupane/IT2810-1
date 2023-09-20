@@ -7,7 +7,7 @@ describe("Header", () => {
     render(
       <BrowserRouter>
         <Header />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
   });
 
@@ -18,7 +18,8 @@ describe("Header", () => {
     });
   });
 
-  test("Navigation to and from favourites", async () => { //Checks if the buttons in the header navigates correctly to the right pages.
+  test("Navigation to and from favourites", async () => {
+    //Checks if the buttons in the header navigates correctly to the right pages.
     await act(async () => {
       fireEvent.click(screen.getByTestId("Favourites-button"));
       expect(global.window.location.pathname).toEqual("/favourites");
