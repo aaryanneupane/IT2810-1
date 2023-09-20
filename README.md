@@ -4,7 +4,7 @@ Valuta-Gutta er en nettside hvor man kan få oppdatert informasjon om vekslingsk
 
 ## Bygging og kjøring
 
-For å gjøre prosjektet klart for kjøring må en rekke kommandoer kjøres etter repoet har blitt **klonet**. Først må man navigere seg til MAPPEN "IT2810-1" ved å kjøre:
+For å gjøre prosjektet klart for kjøring må en rekke kommandoer kjøres etter repoet har blitt **klonet**. Først må man navigere seg til mappen "IT2810-1" ved å kjøre:
 ```
 cd IT2810-1
 ```
