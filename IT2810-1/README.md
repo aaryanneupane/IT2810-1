@@ -32,7 +32,15 @@ Da vil nettsiden åpnes i en localhost i nettleseren din.
 
 Åpne appen på http://it2810-20.idi.ntnu.no/project1 og sjekk ut nettsiden!
 
-## For mer detaljert om utførelsen vår til de ulike kravene og testing, se vedlagt pdf-fil.
+### Testing
+
+For å kjøre testene vi har skrevet, kan dere benytte kommandoen:
+
+```
+npm test
+```
+
+## For mer detaljert om utførelsen vår til de ulike kravene og testing, se vedlagt pdf-fil med navn "Beskrivelse".
 
 Innhenting av api-data:
 

@@ -6,7 +6,7 @@ import { mockCurrencyData } from "../mocks/MockingData";
 export const handlers = [
   rest.get(
     "http://api.exchangeratesapi.io/v1/latest?access_key=62e1a010dfc6012cd03d275c1d59fbc6",
-    (req, res, ctx) => {
+    (_, res, ctx) => {
       return res(ctx.json(mockCurrencyData));
     },
   ),

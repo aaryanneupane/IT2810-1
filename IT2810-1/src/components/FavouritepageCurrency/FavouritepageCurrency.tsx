@@ -17,10 +17,10 @@ const FavouritepageCurrency: React.FC<FavouritepageCurrencyProps> = ({
   return (
     <div className={styles["currency-card"]}>
       <div className={styles["currency-details"]}>
-        <h2 className={styles["currency-name"]} data-testId="currency-name">
+        <h2 className={styles["currency-name"]} data-testid="currency-name">
           {cc.code(currency)?.currency ?? currency}
         </h2>
-        <p className={styles["exchange-rate"]} data-testId="exchange-rate">
+        <p className={styles["exchange-rate"]} data-testid="exchange-rate">
           1 EURO ≈ {rate.toFixed(2)} {currency}
         </p>
       </div>
