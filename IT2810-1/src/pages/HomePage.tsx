@@ -39,7 +39,6 @@ const HomePage = () => {
   return (
     <div>
       <Header />
-      <button className="arrow left" onClick={handlePreviousClick}></button>
       <div>
         <div>
           <SearchBar
@@ -52,10 +51,10 @@ const HomePage = () => {
           key={displayCurrency[0]}
           currency={displayCurrency[0]}
           rate={displayCurrency[1]}
+          nextArrow={handleNextClick}
+          prevArrow={handlePreviousClick}
         />
       </div>
-
-      <button className="arrow right" onClick={handleNextClick}></button>
     </div>
   );
 };

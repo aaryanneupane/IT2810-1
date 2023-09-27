@@ -3,7 +3,7 @@
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  height: 150px;
+  height: 20vw;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -12,10 +12,9 @@
   z-index: 1; /* This is to make sure the currency component doesn't scroll over the header*/
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 900px) {
   .header {
-    height: 100px; /*Reduce header-height for smaller screens */
-    padding-top: 10px; /*Top-padding for vertical adjustments */
+    height: 180px;
   }
 }
 
@@ -23,9 +22,6 @@
   width: 48%;
   height: 28%;
   padding: 15px 24px 24px 24px;
-  /* width: 200px;
-  height: auto;
-  padding: 15px 24px 15px 20px; */
   cursor: pointer;
 }
 
@@ -41,8 +37,9 @@
   max-width: 200px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 550px) {
   .button {
-    font-size: 10px;
+    font-size: 12px;
+    padding: 10px 19px 10px 19px;
   }
 }

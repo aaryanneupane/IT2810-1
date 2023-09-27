@@ -1,9 +1,18 @@
 import { render, act, screen, fireEvent } from "@testing-library/react";
 import HomepageCurrency from "./HomepageCurrency.tsx";
 
+const voidFunc = vi.fn();
+
 describe("HomepageCurrency", () => {
   beforeEach(() => {
-    render(<HomepageCurrency currency="USD" rate={1.12} />); //Random value for testing
+    render(
+      <HomepageCurrency
+        currency="USD"
+        rate={1.12}
+        nextArrow={voidFunc}
+        prevArrow={voidFunc}
+      />,
+    ); //Random value for testing
   });
 
   test("renders the correct content", async () => {
