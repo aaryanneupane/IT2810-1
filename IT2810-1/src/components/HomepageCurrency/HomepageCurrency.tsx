@@ -5,9 +5,16 @@ import * as cc from "currency-codes";
 interface CurrencyProps {
   currency: string;
   rate: number;
+  nextArrow: () => void;
+  prevArrow: () => void;
 }
 
-const HomepageCurrency: React.FC<CurrencyProps> = ({ currency, rate }) => {
+const HomepageCurrency: React.FC<CurrencyProps> = ({
+  currency,
+  rate,
+  nextArrow,
+  prevArrow,
+}) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
   useEffect(() => {
@@ -60,6 +67,14 @@ const HomepageCurrency: React.FC<CurrencyProps> = ({ currency, rate }) => {
         >
           Favourite
         </button>
+        <button
+          className={`${styles["arrow"]} ${styles["right"]}`}
+          onClick={nextArrow}
+        ></button>
+        <button
+          className={`${styles["arrow"]} ${styles["left"]}`}
+          onClick={prevArrow}
+        ></button>
       </div>
     </>
   );
