@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Header from "../components/Header/Header";
-import HomepageCurrency from "../components/HomepageCurrency/HomepageCurrency";
+import Header from "../components/Header";
+import HomepageCurrency from "../components/HomepageCurrency";
 import "../styles/HomePage.css";
-import { SearchBar } from "../components/SearchBar/SearchBar";
+import { SearchBar } from "../components/SearchBar";
 import { fetchData } from "../api";
 import { useQuery } from "@tanstack/react-query";
 
@@ -24,7 +24,7 @@ const HomePage = () => {
 
   // Slice the currencies to display only the specified count
   const currenciesToDisplay: [string, number][] = Object.entries(
-    data?.rates ?? {},
+    data?.rates ?? {}
   ).map(([currencyCode, rate]) => [currencyCode, rate as number]);
 
   // Function to handle "Previous" button click
@@ -39,14 +39,10 @@ const HomePage = () => {
   return (
     <div>
       <Header />
-      <div>
-        <div>
           <SearchBar
             currenciesToDisplay={currenciesToDisplay}
             onCurrencySelect={setIterate}
           />
-        </div>
-
         <HomepageCurrency
           key={displayCurrency[0]}
           currency={displayCurrency[0]}
@@ -55,7 +51,7 @@ const HomePage = () => {
           prevArrow={handlePreviousClick}
         />
       </div>
-    </div>
+
   );
 };
 

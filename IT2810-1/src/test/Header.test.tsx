@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, act } from "@testing-library/react";
-import Header from "./Header";
+import Header from "../components/Header";
 import { BrowserRouter } from "react-router-dom";
 
 describe("Header", () => {
@@ -7,7 +7,7 @@ describe("Header", () => {
     render(
       <BrowserRouter>
         <Header />
-      </BrowserRouter>,
+      </BrowserRouter>
     );
   });
 

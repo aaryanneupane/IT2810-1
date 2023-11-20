@@ -1,4 +1,4 @@
-import Currency from "./FavouritepageCurrency";
+import Currency from "../components/FavouritepageCurrency";
 import { render, screen, RenderResult, waitFor } from "@testing-library/react";
 import fireEvent from "@testing-library/user-event";
 
@@ -13,7 +13,7 @@ describe("Currency", () => {
         rate={1.12}
         favourite={true}
         voidFunc={voidFunc}
-      />,
+      />
     );
   });
 

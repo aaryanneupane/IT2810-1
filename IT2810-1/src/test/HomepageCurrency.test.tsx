@@ -1,5 +1,5 @@
 import { render, act, screen, fireEvent } from "@testing-library/react";
-import HomepageCurrency from "./HomepageCurrency.tsx";
+import HomepageCurrency from "../components/HomepageCurrency.tsx";
 
 const voidFunc = vi.fn();
 
@@ -11,7 +11,7 @@ describe("HomepageCurrency", () => {
         rate={1.12}
         nextArrow={voidFunc}
         prevArrow={voidFunc}
-      />,
+      />
     ); //Random value for testing
   });
 
@@ -20,7 +20,7 @@ describe("HomepageCurrency", () => {
       expect(screen.getByText("US Dollar")).toBeTruthy(); //Trying different functions, this one checks if there is something in the component that says "US Dollar"
       expect(screen.getByText("1 EURO ≈ 1.12 USD")).toBeTruthy();
       expect(screen.getByTestId("currency-favourite")).toHaveTextContent(
-        "Favourite",
+        "Favourite"
       ); //This one checks more specifically than the last two, it checks if the exact button says "Favourite"
     });
   });
@@ -36,7 +36,7 @@ describe("HomepageCurrency", () => {
 
       expect(storedFavourites).not.toBeNull();
       expect(storedFavourites).toBe(
-        JSON.stringify([{ currency: "USD", isFavourite: true }]),
+        JSON.stringify([{ currency: "USD", isFavourite: true }])
       );
     });
   });

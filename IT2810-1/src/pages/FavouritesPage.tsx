@@ -1,7 +1,7 @@
-import Header from "../components/Header/Header";
+import Header from "../components/Header";
 import { useState, useEffect } from "react";
 import "../styles/FavouritesPage.css";
-import Currency from "../components/FavouritepageCurrency/FavouritepageCurrency";
+import Currency from "../components/FavouritepageCurrency";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "../api";
 
@@ -38,7 +38,7 @@ const FavouritesPage = () => {
       // Filter the currencies to display based on the favorites array
       const currenciesToDisplay = favourites
         .filter((favorite) =>
-          Object.prototype.hasOwnProperty.call(data?.rates, favorite.currency),
+          Object.prototype.hasOwnProperty.call(data?.rates, favorite.currency)
         )
         .slice(0, displayCount);
 
@@ -48,7 +48,7 @@ const FavouritesPage = () => {
           currency: favorite.currency,
           rate: data.rates[favorite.currency],
           isFavourite: favorite.isFavourite,
-        }),
+        })
       );
       setDisplayCurrencies(currenciesWithRatesAndFavourites);
     }
@@ -62,7 +62,7 @@ const FavouritesPage = () => {
   const handleFavouriteClick = (currency: string) => {
     // Filter out the item with the specified currency
     const updatedFavourites = favourites.filter(
-      (fav) => fav.currency !== currency,
+      (fav) => fav.currency !== currency
     );
 
     // Update the favourites array
