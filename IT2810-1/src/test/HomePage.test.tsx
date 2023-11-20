@@ -1,9 +1,8 @@
 import { render } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import FavouritesPage from "./FavouritesPage";
-import { BrowserRouter as Router } from "react-router-dom";
+import HomePage from "../pages/HomePage";
 
-describe("FavouritesPage", () => {
+describe("HomePage", () => {
   let queryClient: QueryClient;
   beforeEach(() => {
     queryClient = new QueryClient();
@@ -12,9 +11,7 @@ describe("FavouritesPage", () => {
   test("snapshot test", () => {
     const wrapper = render(
       <QueryClientProvider client={queryClient}>
-        <Router>
-          <FavouritesPage />
-        </Router>
+        <HomePage />
       </QueryClientProvider>,
     );
     expect(wrapper).toMatchSnapshot();

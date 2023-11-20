@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./HomepageCurrency.module.css";
+import styles from "../styles/HomepageCurrency.module.css";
 import * as cc from "currency-codes";
 
 interface CurrencyProps {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as cc from "currency-codes";
-import "./SearchBar.css";
+import "../styles/SearchBar.css";
 
 interface SearchBarProps {
   currenciesToDisplay: [string, number][];
