@@ -5,6 +5,7 @@ Valuta-Gutta er en nettside hvor man kan få oppdatert informasjon om vekslingsk
 ## Bygging og kjøring
 
 Api'et vi har benyttet har en maksgrense på 1 000 calls per måned. Stor pågang på nettsiden vil derfor føre til at tallet overstiges, og vil gi en "fetching" error. En slik error oppstår også dersom man ikke er koblet på NTNU sitt nett. Ved error kan man gå inn på src/api.ts og erstatte API koden med en av de nedenfor:
+
 - 9206dab1e6836f26513ec786069d8b3f
 - c182e24266d01c58d54f1145dfdbb12e
 

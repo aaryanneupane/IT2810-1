@@ -1,9 +1,5 @@
 Hva?
 
-
-
 Hvorfor?
-
-
 
 Kommentarer:
