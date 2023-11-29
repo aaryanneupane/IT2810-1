@@ -16,7 +16,6 @@
   /*box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);  small shadow for a "lifting effect" */
 }
 
-
 .currency-favorite {
   background-color: darkcyan;
   color: white;
@@ -65,8 +64,6 @@
   transform: translate(-50%, -50%);
 }
 
-
-
 .exchange-rate {
   font-size: 1.5vw;
   margin-top: 2vw;
@@ -93,6 +90,9 @@
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
+.arrow.right:hover {
+  border-color: rgba(0, 139, 139, 0.449);
+}
 
 /* Styles for the left arrow */
 .arrow.left {
@@ -101,3 +101,6 @@
   -webkit-transform: rotate(+135deg);
 }
 
+.arrow.left:hover {
+  border-color: rgba(0, 139, 139, 0.449);
+}

@@ -7,18 +7,18 @@ exports[`FavouritesPage > snapshot test 1`] = `
     <div>
       <div>
         <div
-          class="_header_63c2ea"
+          class="_header_a9d33c"
         >
           <div>
             <img
               alt="My Logo"
-              class="_image_63c2ea"
+              class="_image_a9d33c"
               data-testid="logo"
               src="/project1/icon-logo.png"
             />
           </div>
           <button
-            class="_button_63c2ea"
+            class="_button_a9d33c"
             data-testid="Favourites-button"
           >
             Favourites
@@ -42,18 +42,18 @@ exports[`FavouritesPage > snapshot test 1`] = `
   "container": <div>
     <div>
       <div
-        class="_header_63c2ea"
+        class="_header_a9d33c"
       >
         <div>
           <img
             alt="My Logo"
-            class="_image_63c2ea"
+            class="_image_a9d33c"
             data-testid="logo"
             src="/project1/icon-logo.png"
           />
         </div>
         <button
-          class="_button_63c2ea"
+          class="_button_a9d33c"
           data-testid="Favourites-button"
         >
           Favourites
