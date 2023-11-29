@@ -13,7 +13,7 @@ describe("Currency", () => {
         rate={1.12}
         favourite={true}
         voidFunc={voidFunc}
-      />
+      />,
     );
   });
 

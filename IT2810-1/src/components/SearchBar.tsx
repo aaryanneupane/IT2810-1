@@ -24,11 +24,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     }
   }, []);
 
-  // Store the search query in session storage whenever it changes
-  useEffect(() => {
-    sessionStorage.setItem("searchQuery", search);
-  }, [search]);
-
+  // Filter the currencies to display based on the search string
   useEffect(() => {
     if (search !== "") {
       const filtered = currenciesToDisplay.filter(
@@ -63,6 +59,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
               const index = currenciesToDisplay.findIndex(([c]) => c === code);
               onCurrencySelect(index);
               setSearch("");
+              sessionStorage.setItem("searchQuery", search);
             }}
             role="button"
             tabIndex={0}

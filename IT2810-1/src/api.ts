@@ -1,5 +1,5 @@
 export async function fetchData() {
-  const apiKey = "9fa3b491b64d5e01acb2fd1f4529d1f2"; // The API key
+  const apiKey = "eb196e9f502123e41787e299a3ad2411"; // The API key
 
   const response = await fetch(
     `http://api.exchangeratesapi.io/v1/latest?access_key=${apiKey}`,
